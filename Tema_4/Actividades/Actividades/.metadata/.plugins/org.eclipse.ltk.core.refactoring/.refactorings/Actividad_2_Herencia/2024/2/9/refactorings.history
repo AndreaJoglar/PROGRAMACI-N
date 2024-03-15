@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;ejercicio_3Clases_Abstractas&apos; to &apos;ejercicio_03Clases_Abstractas&apos;&#x0D;&#x0A;- Original project: &apos;Actividad_2_Herencia&apos;&#x0D;&#x0A;- Original element: &apos;Actividad_2_Herencia/src/ejercicio_3Clases_Abstractas&apos;&#x0D;&#x0A;- Renamed element: &apos;Actividad_2_Herencia/src/ejercicio_03Clases_Abstractas&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;ejercicio_3Clases_Abstractas&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;ejercicio_3Clases_Abstractas" name="ejercicio_03Clases_Abstractas" qualified="false" references="true" stamp="1708933654719" textual="false" version="1.0"/>
+</session>

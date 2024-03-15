@@ -1,0 +1,451 @@
+package Ficheros_Matrices;
+
+import java.util.Scanner;
+
+public class Libreria_Matriz {
+	static Scanner teclado = new Scanner(System.in);
+	
+	//-----------Funciones ejercicio01------------
+	/**
+	 * Funcion que lee los valores de una matriz
+	 * @param m matriz de enteros
+	 */
+	public static void leerMatriz (int [][]m) {
+		for (int i=0;i<m.length;i++) {
+			for (int j=0;j<m[0].length;j++) {
+				System.out.println("Introduce valor ["+i+","+j+"]: ");
+				m[i][j]=teclado.nextInt();
+			}
+		}
+	}
+	
+	/**
+	 * Funcion que muestra los valores de una matriz
+	 * @param m matriz de enteros
+	 */
+	public static void mostrarMatriz (int [][]m) {
+		for (int i=0;i<m.length;i++) {
+			for (int j=0;j<m[0].length;j++) {
+				System.out.print(m[i][j]+" ");
+			}
+			System.out.println();
+		}
+	}
+	
+	/**
+	 * Funcion que calcula la suma de una matriz
+	 * por filas
+	 * @param m matriz de enteros
+	 */
+	public static void sumaFilas (int [][]m) {
+		for (int i=0;i<m.length;i++) {
+			int suma=0;
+			for (int j=0;j<m[0].length;j++) {
+				suma+=m[i][j];
+			}
+			System.out.println("Suma fila ["+i+"] = "+suma);
+		}
+	}
+	
+	/**
+	 * Funcion que calcula la suma de una matriz
+	 * por columnas
+	 * @param m matriz de enteros
+	 */
+	public static void sumaColumnas (int [][]m) {
+		for (int j=0;j<m[0].length;j++) {
+			int suma=0;
+			for (int i=0;i<m.length;i++) {
+				suma+=m[i][j];
+			}
+			System.out.println("Suma columna ["+j+"] = "+suma);
+		}
+	}
+	
+	/**
+	 * Funcion que crea una nueva matriz a partir de una matriz parametro
+	 * intercambiando las filas del parametro por las columnas y viceversa
+	 * @param m matriz de enteros
+	 * @return matriz de enteros
+	 */
+	public static int [][] intercambia (int [][]m){
+		int filas = m.length;
+		int columnas = m[0].length;
+		int [][] matrizNueva = new int [columnas][filas];
+		
+		for (int i=0;i<filas;i++) {
+			for (int j=0;j<columnas;j++) {
+				matrizNueva[j][i]=m[i][j];
+			}
+		}
+		return matrizNueva;
+	}
+	
+	/**
+	 * Funcion que determina si una matriz es selectiva
+	 * @param m matriz de enteros
+	 * @return boolean
+	 */
+	public static boolean esSelectiva (int [][]m) {
+		if (m.length!=m[0].length) return false;
+		for (int i=0;i<m.length;i++) {
+			for (int j=0;j<m[0].length;j++) {
+				if (i==j && m[i][j]!=1) {
+					return false;
+				}
+			}
+		}
+		
+		return true;
+	}
+	
+	public static boolean tienePuntoSilla (int [][]m) {
+		
+		for (int i=0;i<m.length;i++) {
+			for (int j=0;j<m[0].length;j++) {
+				if (m[i][j]==maxFila(m, i) && m[i][j]==minColumna(m, j)) {
+					System.out.println("En la posición ["+i+", "+j+"] "+m[i][j]+" es punto silla.");
+					return true;
+				}
+			}
+		}
+		
+		return false;
+		
+	}
+	
+	/**
+	 * Funcion que calcula el maximo de una fila
+	 * que recibe como parametro
+	 * @param m matriz de enteros
+	 * @param fila entero
+	 * @return entero
+	 */
+	public static int maxFila (int [][]m, int fila) {
+		int maxFila=Integer.MIN_VALUE;
+		for (int j=0;j<m[0].length;j++) {
+			if (m[fila][j]>maxFila) maxFila=m[fila][j];
+		}
+		return maxFila;
+	}
+	
+	/**
+	 * Funcion que calcula el minimo de una columna
+	 * que recibe como parametro
+	 * @param m matriz de enteros
+	 * @param columna entero
+	 * @return entero
+	 */
+	public static int minColumna (int [][]m, int columna) {
+		int minColumna=Integer.MAX_VALUE;
+		for (int i=0;i<m.length;i++) {
+			if (m[i][columna]<minColumna) minColumna=m[i][columna];
+		}
+		return minColumna;
+	}
+	
+	/**
+	 * Funcion que determina el maximo valor de cada fila
+	 * de una matriz
+	 * @param m matriz de enteros
+	 */
+	public static void maxFilasMatriz (int [][]m) {
+		for (int i=0;i<m.length;i++) {
+			int maxFila=Integer.MIN_VALUE;
+			for (int j=0;j<m[0].length;j++) {
+				if (m[i][j]>maxFila) maxFila=m[i][j];
+			}
+			System.out.println("Máximo fila ["+i+"]: "+maxFila);
+		}
+	}
+	
+	/**
+	 * Funcion que determina el valor minimo de cada columna
+	 * de una matriz
+	 * @param m matriz de enteros
+	 */
+	public static void minColumnasMatriz (int [][]m) {
+		for (int j=0;j<m[0].length;j++) {
+			int minColumna=Integer.MAX_VALUE;
+			for (int i=0;i<m.length;i++) {
+				if (m[i][j]<minColumna) minColumna=m[i][j];
+			}
+			System.out.println("Mínimo columna ["+j+"]: "+minColumna);
+		}
+		
+	}
+	
+	//-----------Funciones ejercicio02-------------
+	/**
+	 * Funcion que crea una matriz cuadrada rellenada a partir de la formula
+	 * m[i][j]=i+j
+	 * @return matriz de enteros
+	 */
+	public static int [][] crearMatrizFormula (){
+		System.out.println("Dimensión de la matriz cuadrada: ");
+		int dim = teclado.nextInt();
+		int [][]m = new int [dim][dim];
+		
+		for (int i=0;i<m.length;i++) {
+			for (int j=0;j<m[0].length;j++) {
+				m[i][j]=i+j;
+			}
+		}
+		return m;
+	}
+	
+	/**
+	 * Funcion que muestra el triangulo superior
+	 * de una matriz 
+	 * @param m matriz de enteros
+	 */
+	public static void trianguloSuperior (int [][]m) {
+		for (int i=0;i<m.length;i++) {
+			for (int espacio=0;espacio<i;espacio++) {
+				System.out.print("  ");
+			}
+			for (int j=i+1;j<m[0].length;j++) {
+				System.out.print(m[i][j]+" ");
+			}
+			System.out.println();
+		}
+	}
+	
+	/**
+	 * Funcion que muestra el triangulo superior inverso de una matriz
+	 * @param m matriz de enteros
+	 */
+	public static void trianguloSuperiorInverso (int [][]m) {
+		for (int i=0;i<m.length;i++) {
+			for (int j=0;j<m[0].length-i-1;j++) {	
+				System.out.print(m[i][j]+" ");
+			}
+			System.out.println();
+		}
+	}
+	
+	/**
+	 * Funcion que muestra el triangulo inferior
+	 * de una matriz
+	 * @param m matriz de enteros
+	 */
+	public static void trianguloInferior (int [][]m) {
+		for (int i=1;i<m.length;i++) {
+			for (int j=0;j<i;j++) {
+				System.out.print(m[i][j]+" ");
+			}
+			System.out.println();
+		}
+	}
+	
+	/**
+	 * Funcion que muestra el triangulo inferior inverso
+	 * de una matriz
+	 * @param m matriz de enteros
+	 */
+	public static void trianguloInferiorInverso (int [][]m) {
+		for (int i=1;i<m.length;i++) {
+			for (int espacio=0;espacio<m.length-i-1;espacio++) {
+				System.out.print("  ");
+			}
+			for (int j=m[0].length-i;j<m[0].length;j++) {
+				System.out.print(m[i][j]+" ");
+			}
+			System.out.println();
+			
+		}
+	}
+	
+	//---------------Funciones ejercicio03-----------
+	/**
+	 * Funcion que crea una matriz cuadrada impar
+	 * con valores aleatorios entre 1 y 9.
+	 * @return
+	 */
+	public static int [][] crearMatrizImpar (){
+		System.out.println("Introduce dimensión de la matriz impar: ");
+		int dim = teclado.nextInt();
+		
+		while (dim%2==0) {
+			System.out.println("ERROR. Por favor, introduzca una dimensión impar: ");
+			dim=teclado.nextInt();
+		}
+		
+		int [][]m= new int [dim][dim];
+		for (int i=0;i<m.length;i++) {
+			for (int j=0;j<m[0].length;j++) {
+				m[i][j]=(int)((Math.random()*9)+1);
+			}
+		}
+		return m;
+	}
+	
+	/**
+	 * Funcion que imprime una matriz
+	 * con forma de reloj de arena
+	 * @param m matriz de enteros
+	 */
+	public static void relojArena (int [][]m) {
+		//pirámide invertida
+		for (int i=0; i<=m.length/2;i++) {
+			for (int espacio=0; espacio<i;espacio++) {
+				System.out.print("  ");
+			}
+			for (int j=i;j<m[0].length-i;j++) {
+				System.out.print(m[i][j]+" ");
+			}
+			System.out.println();
+		}
+		//pirámide
+		for (int i=m.length/2+1;i<m.length;i++) {
+			for (int espacio=0;espacio<m[0].length-i-1;espacio++) {
+				System.out.print("  ");
+			}
+			for (int j=m[0].length-i-1;j<=i;j++) {
+				System.out.print(m[i][j]+" ");
+			}
+			System.out.println();
+		}
+	}
+	
+	//-----------Funciones ejercicioApoyo-----------
+	/**
+	 * Funcion que genera una matriz a partir de las 
+	 * filas y columnas que recibe como parametros
+	 * @param filas entero
+	 * @param columnas entero
+	 * @return matriz de enteros
+	 */
+	public static int [][] generarMatriz (int filas, int columnas){
+		int [][]m= new int [filas][columnas];
+		for (int i=0;i<filas;i++) {
+			for (int j=0;j<columnas; j++) {
+				System.out.println("["+i+","+j+"]: ");
+				m[i][j]=teclado.nextInt();
+			}
+		}
+		return m;
+	}
+	
+	/**
+	 * Funcion que muestra una matriz
+	 * @param m matriz de enteros
+	 */
+	public static void muestraMatriz (int [][]m) {
+		for (int i = 0; i < m.length; i++) {
+			for (int j = 0; j < m[0].length; j++) {
+				System.out.print(m[i][j]+"   ");
+			}
+			System.out.println();
+		}
+	}
+	
+	/**
+	 * Funcion que busca un valor introducido como parametro
+	 * dentro de una matriz
+	 * @param m matriz de enteros
+	 * @param valor entero
+	 */
+	public static void buscarValor (int [][]m, int valor) {
+		boolean encontrado=false;
+		for (int i = 0; i < m.length; i++) {
+			for (int j = 0; j < m[0].length; j++) {
+				if (m[i][j]==valor) {
+					System.out.println("El valor "+valor+" aparece en la posicion ["+i+","+j+"].");
+					encontrado = true;
+				}
+			}
+		}
+		if (encontrado==false) System.out.println("El valor "+valor+" no aparece en la matriz.");
+	}
+	
+	/**
+	 * Funcion que suma cada fila de una matriz
+	 * @param m matriz de enteros
+	 * @return vector de enteros
+	 */
+	public static int [] sumaPorFilas (int [][]m) {
+		int []v=new int [m.length];
+		for (int i = 0; i < m.length; i++) {
+			int suma=0;
+			for (int j = 0; j < m[0].length; j++) {
+				suma+=m[i][j];
+			}
+			v[i]=suma;
+		}
+		return v;
+	}
+	
+	/**
+	 * Funcion que muestra la suma de cada columna
+	 * de una matriz
+	 * @param m matriz de enteros
+	 * @return vector de enteros
+	 */
+	public static int [] sumaPorColumnas (int [][]m) {
+		int []v= new int [m[0].length];
+		for (int j = 0; j < m[0].length; j++) {
+			int suma=0;
+			for (int i=0;i<m.length;i++) {
+				suma+=m[i][j];
+			}
+			v[j]=suma;
+		}
+		return v;
+	}
+	
+	/**
+	 * Determina la matriz traspuesta de una matriz
+	 * donde se intercambia la disposición de filas
+	 * y de columnas 
+	 * @param m matriz de enteros
+	 * @return matriz de enteros
+	 */
+	public static int [][] calcularTraspuesta (int [][]m){
+		int filas = m.length;
+		int columnas = m[0].length;
+		int [][] traspuesta = new int [columnas][filas];
+		
+		for (int i=0;i<filas;i++) {
+			for (int j=0;j<columnas;j++) {
+				traspuesta[j][i]=m[i][j];
+			}
+		}
+		return traspuesta;
+	}
+	
+	/**
+	 * Funcion que suma dos matrices
+	 * @param a matriz de enteros
+	 * @param b matriz de enteros
+	 * @return matriz de enteros
+	 */
+	public static int [][] sumaMatrices (int [][]a, int [][]b){
+		if (a.length!=b.length || a[0].length!=b[0].length) {
+			System.out.println("ERROR. Las matrices no pueden sumarse al tener distintas dimensiones.");
+		}
+		int [][] matrizSumada = new int [a.length][a[0].length];
+		for (int i = 0; i < matrizSumada.length; i++) {
+			for (int j = 0; j < matrizSumada[0].length; j++) {
+				matrizSumada[i][j]=a[i][j]+b[i][j];
+			}
+		}
+		return matrizSumada;
+	}
+	
+	public static int [][] productoMatrices (int [][]a, int [][] b){
+		int [][] producto=new int [a.length][b[0].length];
+		for (int i = 0; i < a.length; i++) {
+			int resultado=0;
+			for (int j = 0; j < b[0].length; j++) {
+				for (int k = 0; k < a[0].length; k++) {
+					resultado+=a[i][k]*b[k][j];
+				}
+				producto[i][j]=resultado;
+			}
+			
+			
+		}
+		return producto;
+	}
+}

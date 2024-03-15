@@ -1,0 +1,25 @@
+package Ficheros_Vectores;
+
+import java.util.Scanner;
+
+public class LibreriaRepaso {
+	static Scanner teclado = new Scanner(System.in);
+	
+	/**
+	 * Funcion que inserta un valor en un vector
+	 * @param v vector de enteros 
+	 * @param valor entero
+	 * @param pos entero
+	 */
+	public static void insertaValor (int v[], int valor, int pos) {
+		if (pos<0 || pos>v.length) {
+			System.out.println("ERROR. Fuera de rango.");
+			return;
+		}
+		for (int i = v.length-2; i>=pos; i--) {
+			v[i+1]=v[i];
+		}
+		v[pos]=valor;
+	}
+
+}

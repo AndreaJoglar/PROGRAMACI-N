@@ -1,0 +1,14 @@
+package Ejer3Junit;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class colegioTest {
+
+	@Test
+	void testInsertarPersona() {
+		Colegio colegio = new Colegio();
+		assertTrue(colegio.numPersona() == 0);
+	}
+}

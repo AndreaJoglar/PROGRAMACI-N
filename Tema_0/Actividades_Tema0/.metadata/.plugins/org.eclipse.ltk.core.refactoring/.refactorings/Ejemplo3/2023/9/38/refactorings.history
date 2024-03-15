@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;MensajeSalida&apos; to &apos;Ficheros&apos;&#x0D;&#x0A;- Original project: &apos;Ejemplo3&apos;&#x0D;&#x0A;- Original element: &apos;Ejemplo3/src/MensajeSalida&apos;&#x0D;&#x0A;- Renamed element: &apos;Ejemplo3/src/Ficheros&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;MensajeSalida&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;MensajeSalida" name="Ficheros" qualified="false" references="true" stamp="1695455272794" textual="false" version="1.0"/>
+</session>

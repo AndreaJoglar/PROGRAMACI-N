@@ -1,0 +1,36 @@
+package ficheros2_1_4;
+
+import java.util.Scanner;
+
+public class ejercicio10 {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* Pedir número de día y número de mes
+		 * Mostrar estación del año:
+		 * si mes 12 (y día <= 21 y >=21), 1, 2, 3 (y día >= 20: ES INVIERNO
+		 * si mes 3 (y día <= 21), 5 o 6 (y día <= 21) PRIMAVERA
+		 * si mes 6 (y día <= 22), 7, 8, 9 (y día <= 22) VERANO
+		 * else ES OTOÑO
+		 * 
+		 */
+		System.out.println("Introduce un mes: ");
+		int mes = teclado.nextInt();
+		
+		System.out.println("Introduce un día del mes: ");
+		int dia = teclado.nextInt();
+		
+		while (mes == 2) {
+			if (dia > 29) System.out.println("No sabía que febrero tuviera más de 29 días.");
+		}
+		
+		if (((mes == 12) && (dia >= 21)) || (mes == 1) || (mes == 2) || ((mes == 3) && (dia <= 20))) {
+			System.out.println("Estamos en invierno.");
+		}
+		
+				
+		
+	}
+
+}

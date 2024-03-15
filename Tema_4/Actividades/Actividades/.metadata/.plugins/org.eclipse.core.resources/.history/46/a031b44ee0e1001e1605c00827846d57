@@ -1,0 +1,27 @@
+package ejercicio;
+
+public class Venta {
+
+	private static int CONT_VENTAS;
+	
+	private int idVentas;
+	private String nombreVendedor;
+	private DetalleVenta [] detalle;
+	
+	/**
+	 * @param idVentas
+	 * @param nombreVendedor
+	 * @param detalle
+	 */
+	public Venta(int idVentas, String nombreVendedor, DetalleVenta[] detalle) {
+		this.idVentas = idVentas;
+		this.nombreVendedor = nombreVendedor;
+		this.detalle = detalle;
+	}
+	
+	public void añadirDetalle (Producto p, int cantidad) {
+		
+	}
+	
+	
+}

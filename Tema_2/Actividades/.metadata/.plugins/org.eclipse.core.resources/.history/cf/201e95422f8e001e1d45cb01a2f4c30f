@@ -1,0 +1,12 @@
+package Ficheros;
+
+public class ejercicio22 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Libreria.cifrasPares(10);
+		
+
+	}
+
+}

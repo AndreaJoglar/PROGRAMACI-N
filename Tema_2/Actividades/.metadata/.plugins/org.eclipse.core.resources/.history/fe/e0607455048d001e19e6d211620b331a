@@ -1,0 +1,25 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class ejercicio10 {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Introduce número de horas de trabajo diarias: ");
+		int horas = teclado.nextInt();
+		
+		int opcion = menu();
+		
+	}
+
+	private static int menu() {
+		// TODO Auto-generated method stub
+		int opcion;
+		System.out.println("Elige tu turno: \n1. Turno diurno.\n2. Turno nocturno.");
+		opcion = teclado.nextInt();
+		return opcion;
+	}
+
+}

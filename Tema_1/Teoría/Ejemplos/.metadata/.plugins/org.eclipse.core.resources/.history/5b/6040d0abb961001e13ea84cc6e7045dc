@@ -1,0 +1,18 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class ejercicio7Clase {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* leer una secuencia de números hasta
+		 * introducir un cer y sumarlos a medida que se leen
+		 */
+		int suma = 0;
+		
+		
+
+
+}

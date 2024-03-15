@@ -1,0 +1,283 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class Libreria {
+	static Scanner teclado = new Scanner(System.in);
+	
+	//------------Funciones ejercicio01--------------
+	/**
+	 * Funcion que muestra contenido del vector
+	 * @param v vector de enteros
+	 */
+	public static void mostrarValor (int []v) {
+		for (int i=0;i<v.length;i++) {
+			System.out.print(v[i]+" ");
+		}
+		System.out.println();
+	
+	}
+	
+	/**
+	 * Funcion que inserta un valor en el vector
+	 * @param v vector de enteros
+	 * @param valor entero
+	 * @param pos entero
+	 */
+	public static void insertaValor (int []v, int valor, int pos) {
+		if (pos<0 || pos>=v.length) {
+			System.out.println("ERROR. Fuera de rango");
+			return;
+		}
+		for (int i=v.length-2;i>=pos;i--) {
+			v[i+1]=v[i];
+		}
+		v[pos]=valor;
+	}
+	
+	//-----------Funciones ejercicio02--------------
+	/**
+	 * Funcion que muestra un vector
+	 * @param v vector de enteros
+	 */
+	public static void mostrar (int []v) {
+		for (int i=0;i<v.length;i++) {
+			System.out.print(v[i]+" ");
+		}
+		System.out.println();
+	}
+	
+	//Siempre que tengamos i+1/i-1 acordarse de revisar los límites
+	/**
+	 * Funcion que calcula la longitud maxima creciente de un vector
+	 * y su punto de inicio
+	 * @param v vector de enteros
+	 */
+	public static void calcularSecuencia (int[]v) {
+		int longitudMax=Integer.MIN_VALUE;
+		int posInicioMax=-1;
+		
+		for (int i = 0; i < v.length-1; i++) {
+			if (v[i]<v[i+1]) {
+				int longitud=1;
+				int posInicio=i;
+				while (i<v.length-1 && v[i]<v[i+1]) {//el sistema comprueba primero la primera condición. Si las pusiéramos al revés, se saldría de rango
+					longitud++;
+					i++;
+				}
+				if (longitud>longitudMax) {
+					longitudMax=longitud;
+					posInicioMax=posInicio;
+				}
+			}
+		}
+		if (longitudMax==Integer.MIN_VALUE) {
+			System.out.println("Secuencia en orden creciente no encontrada.");
+		}
+		else System.out.println("Longitud = "+longitudMax+". Posición de inicio: "+posInicioMax);
+	}
+	
+	//-----------Funciones ejercicio03------------
+	/**
+	 * Funcion que comprueba si dos secuencias de vectores
+	 * son iguales
+	 * @param sec1 vector de enteros
+	 * @param sec2 vector de enteros
+	 * @return boolean
+	 */
+	public static boolean comprobarSecuencia (char[]sec1, char[]sec2) {
+	for (int i=0;i<sec2.length;i++) {
+		if (sec2[i]==sec1[0]) {
+			int indexSec1=0;
+			int indexSec2=i;
+			while (indexSec1<sec1.length && sec1[indexSec1]==sec2[indexSec2]) {
+				indexSec1++;
+				indexSec2++;
+				if (indexSec2==sec2.length) {
+					indexSec2=0;
+				}
+			}
+			if (indexSec1==sec1.length) {
+				return true;
+			}
+		}
+	}
+	return false;
+	}
+	
+	//-----------Funciones ejercicio04-----------
+	/**
+	 * Funcion que genera una baraja
+	 * @return vector de enteros
+	 */
+	public static int []generarBaraja (){
+		int []v = new int [40];
+		int pos=0;
+		for (int veces=1; veces<=4;veces++) {
+			for (int valor=1;valor<=7;valor++) {
+				v[pos]=valor;
+				pos++;
+			}
+			for (int valor=10;valor<=12;valor++) {
+				v[pos]=valor;
+				pos++;
+			}
+		}
+		return v;
+	}
+	
+	/**
+	 * Funcion que muestra la baraja por palos
+	 * @param v vector de enteros
+	 */
+	public static void mostrarBaraja (int[]v) {
+		for (int i=0;i<v.length;i++) {
+			if (i%10==0) {
+				System.out.println();
+			}
+			System.out.print(v[i]+" ");
+		}
+	}
+	
+	/**
+	 * Funcion que intercambia las posiciones de los valores
+	 * de un vector de manera aleatoria
+	 * @param baraja vector de enteros
+	 */
+	public static void mezclarBaraja(int []baraja) {
+		for (int i = 0; i < baraja.length-1; i++) {
+			int posAleatoria = (int)(Math.random()*39);
+			int temp = baraja[i];
+			baraja[i]=baraja[posAleatoria];
+			baraja[posAleatoria]=temp;
+		}
+		for (int i = 0; i < baraja.length; i++) {
+			if (i%10==0) {
+				System.out.println();
+			}
+			if (baraja[i]<10) System.out.print(" "+baraja[i]+" ");
+			else System.out.print(baraja[i]+" ");
+		}
+	}
+	
+	/**
+	 * Funcion que devuelve un caracter ante 
+	 * una posicion recibida
+	 * @param pos entero
+	 * @return char
+	 */
+	public static char elegirCarta (int v[], int pos) {
+		char carta='x';
+		for (int i = 0; i < v.length; i++) {
+			if (v[pos]>=10) {
+				if (v[pos]==10) carta='J';
+				else if (v[pos]==11) carta='Q';
+				else carta='K';
+			}
+		}
+		return carta;
+	}
+	
+	/**
+	 * Funcion que calcula la puntacion de cada jugada
+	 * @param jugada vector de enteros
+	 * @return real
+	 */
+	public static double calcularPuntuacion (int jugada []) {
+		double puntuacion=-1;
+		for (int i = 0; i<jugada.length; i++) {
+			if(elegirCarta(jugada, i)!='x') {
+				puntuacion=0.5;
+			}
+		}
+		return puntuacion;
+	}
+	
+	/**
+	 * Funcion que crea una matriz con 10 en filas pares, 
+	 * 11 en columnas impares y 0 en el resto
+	 * @param m matriz de enteros
+	 */
+	public static void matrizDiezOnce (int[][]m){
+		for (int i = 0; i < m.length; i++) {
+			for (int j = 0; j < m.length; j++) {
+				if(i%2!=0 && j%2==0) {
+					m[i][j]=0;
+					System.out.print(" "+m[i][j]+" ");
+				}
+				else {
+					if(i%2==0) {
+						m[i][j]=10;
+						System.out.print(m[i][j]+" ");
+					}
+					else {
+						m[i][j]=11;
+						System.out.print(m[i][j]+" ");
+					}
+				}
+			}
+			System.out.println();
+		}
+	}
+	
+	//-----------Funcion ejercicio 06------------
+	/**
+	 * Funcion que muestra a los alumnos con mayor y menor media
+	 * @param m matriz de enteros
+	 */
+	public static void mayorMenorMedia (int[][]m) {
+		double mayor=Integer.MIN_VALUE;
+		int posMayor=-1;
+		double menor=Integer.MAX_VALUE;
+		int posMenor=-1;
+		for (int i = 0; i < m.length; i++) {
+			double suma=0;
+			double media=0;
+			for (int j = 0; j < m[0].length; j++) {
+				suma+=m[i][j];
+			}
+			media= suma/m[0].length;
+			
+			if (media>mayor) {
+				mayor=media;
+				posMayor=i+1;
+			}
+			if (media<menor) {
+				menor=media;
+				posMenor=i+1;
+			}
+		}
+		System.out.println("El alumno "+posMayor+" tiene la mayor media con un "+mayor);
+		System.out.println("El alumno "+posMenor+" tiene la menor media con un "+menor);
+	}
+	
+	/**
+	 * Funcion que muestra al alumno que saco
+	 * la peor nota en cualquier asignatura
+	 * @param m matriz de enteros
+	 */
+	public static void peorNota (int [][]m) {
+		int peorNota=Integer.MAX_VALUE;
+		int posPeor=-1;
+		for (int i = 0; i < m.length; i++) {
+			for (int j = 0; j < m[0].length; j++) {
+				if(m[i][j]<peorNota) {
+					peorNota=m[i][j];
+					posPeor=i+1;
+				}
+			}
+		}
+		System.out.println("El alumno "+posPeor+" sacó la peor nota de todas con un "+peorNota);
+	}
+	
+	public static void mejorNotaTres (int [][]m) {
+		for (int i = 0; i < m.length; i++) {
+			if (m[0].length==3) {
+				
+			}
+		}
+	}
+	
+	
+	
+}

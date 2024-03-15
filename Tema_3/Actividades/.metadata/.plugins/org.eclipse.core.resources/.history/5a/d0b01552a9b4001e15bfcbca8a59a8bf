@@ -1,0 +1,8 @@
+package Ficheros_Vectores;
+
+import java.util.Scanner;
+
+public class LibreriaRepaso {
+	static Scanner teclado = new Scanner(System.in);
+
+}

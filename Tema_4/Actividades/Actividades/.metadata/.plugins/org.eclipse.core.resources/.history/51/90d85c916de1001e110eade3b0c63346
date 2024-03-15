@@ -1,0 +1,8 @@
+package ejercicio;
+
+public class Pruebas {
+
+	Producto p = new Producto("Pro1", "Fab1", 150, false);
+	
+	
+}

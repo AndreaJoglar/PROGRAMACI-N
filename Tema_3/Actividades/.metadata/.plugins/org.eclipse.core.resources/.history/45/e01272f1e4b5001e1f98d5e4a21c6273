@@ -1,0 +1,12 @@
+package Ficheros;
+
+public class actividad {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int tablero [][]= new int [0][0];
+		
+	}
+
+}

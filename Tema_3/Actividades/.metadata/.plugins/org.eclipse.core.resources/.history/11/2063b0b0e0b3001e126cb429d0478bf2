@@ -1,0 +1,45 @@
+package Ficheros_Matrices;
+
+import java.util.Scanner;
+
+public class ejercicio_04apoyo {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.out.println("Número de filas: ");
+		int filas= teclado.nextInt();
+		System.out.println("Número de columnas: ");
+		int columnas=teclado.nextInt();
+		
+		//genera matriz a partir de filas y columnas
+		int [][]m=Libreria_Matriz.generarMatriz(filas, columnas);
+		
+		//muestra matriz
+		Libreria_Matriz.mostrarMatriz(m);
+		
+		//busca un valor dentro de la matriz
+		System.out.println("Indica el valor que debe buscarse: ");
+		int valor = teclado.nextInt();
+		Libreria_Matriz.buscarValor(m, valor);
+		
+		//muestra la suma de cada fila de la matriz
+		int []v=Libreria_Matriz.sumaPorFilas(m);
+		for (int i = 0; i < m.length; i++) {
+			System.out.println("Suma fila ["+i+"] = "+v[i]);
+		}
+		
+		//muestra la suma de cada columna de la matriz
+		v=Libreria_Matriz.sumaPorColumnas(m);
+		for (int j = 0; j < m[0].length; j++) {
+			System.out.println("Suma columna ["+j+"] = "+v[j]);
+		}
+		
+		//muestra la matriz traspuesta
+		System.out.println("Matriz traspuesta: ");
+		int [][] traspuesta = Libreria_Matriz.calcularTraspuesta(m);
+		Libreria_Matriz.mostrarMatriz(traspuesta);
+	}
+
+}

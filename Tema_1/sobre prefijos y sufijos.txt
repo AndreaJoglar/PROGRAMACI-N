@@ -1,0 +1,7 @@
+i++ 
+++i
+
+si i = 5;
+
+i++ (5 sin incrementar)
+++i (5 ya incrementado, es decir 6)

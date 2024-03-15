@@ -1,0 +1,297 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class Libreria {
+	static Scanner teclado = new Scanner(System.in);
+	
+	//---------Funciones ejercicio01---------
+	/**
+	 * Funcion que crea un vector de valores enteros
+	 * @param v vector de enteros
+	 * @return vector de enteros
+	 */
+	public static int [] crearVector (int []v) {
+		for (int i=0;i<v.length;i++) {
+			System.out.println("Introduce valor de ["+i+"]: ");
+			v[i]=teclado.nextInt();
+		}
+		return v;
+	}
+	
+	/**
+	 * Funcion que muestra un vector de enteros
+	 * @param v vector de enteros
+	 */
+	public static void mostrarVector(int []v){
+		for (int i=0;i<v.length;i++) {
+			System.out.println("["+i+"]: "+v[i]);
+		}
+	}
+	
+	//---------Funciones ejercicio02------------
+	/**
+	 * Funcion que lee los valores de un vector
+	 * de enteros
+	 * @param v vector de enteros
+	 */
+	public static void leerVector (int []v) {
+		for (int i=0;i<v.length;i++) {
+			System.out.println("Introduce valor de ["+i+"]: ");
+			v[i]=teclado.nextInt();
+		}
+	}
+	
+	/**
+	 * Funcion que imprime un vector 
+	 * en orden inverso
+	 * @param v vector de enteros
+	 */
+	public static void mostrarVectorInverso (int []v) {
+		for (int i=v.length-1;i>=0;i--) {
+			System.out.println("["+i+"] "+v[i]);
+		}
+	}
+	
+	//---------Funciones ejercicio 2b----------
+	/* 
+	public static void leerVector (int []v) {
+		for (int i=0;i<v.length;i++) {
+			System.out.println("["+i+"]: ");
+			v[i]=teclado.nextInt();
+		}
+	}*/
+	
+	/**Funcion que muestra la suma
+	 * de los valores enteros de un vector
+	 * @param v vector de enteros
+	 * @return entero
+	 */
+	public static int suma (int []v) {
+		int suma =0;
+		for (int i=0;i<v.length;i++) {
+			suma = suma+v[i];
+		}
+		return suma;
+	}
+	
+	/**
+	 * Funcion que devuelve el maximo de un vector
+	 * @param v vector de enteros 
+	 * @return entero
+	 */
+	public static int max (int []v) {
+		int max =Integer.MIN_VALUE;
+		for (int i=0;i<v.length;i++) {
+			if (v[i]>max) {
+				max=v[i];
+			}
+		}
+		return max;
+	}
+	
+	/**
+	 * Funcion que calcula la suma de 
+	 * los valores pares de un vector
+	 * @param v vector de enteros
+	 * @return entero
+	 */
+	public static int sumaNumerosPares (int []v) {
+		int sumaPares=0;
+		for(int i=0;i<v.length;i++) {
+			if (v[i]%2==0) {
+				sumaPares +=v[i];
+			}
+		}
+			
+		return sumaPares;
+	}
+	
+	/**
+	 * Funcion que calcula la suma de
+	 * los valores en posiciones impares
+	 * del vector
+	 * @param v vector de enteros
+	 * @return entero
+	 */
+	public static int SumaPosicionesImpares (int []v) {
+		int sumaPosImpar = 0;
+		for (int i=0;i<v.length;i++) {
+			if (i%2!=0) {
+				sumaPosImpar+=v[i];
+			}
+		}
+		return sumaPosImpar;
+	}
+	
+	//------------Funciones ejercicio03------------
+	//Lo hacemos con vectores y no con matrices
+	/**
+	 * Funcion que crea un vector con valores aleatorios
+	 * entre 1 y 10
+	 * @param v vector de entero
+	 */
+	public static void crearVectorAleatorio (int []v) {
+		for (int i=0;i<v.length;i++) {
+			v[i]= (int) ((Math.random()*10)+1);
+		}
+	}
+	
+	//-----------Funciones ejercicio04-------------
+	/**
+	 * Funcion que muestra la varianza 
+	 * de un vector
+	 * @param v vector de enteros
+	 * @return varianza
+	 */
+	public static int varianzaVector (int []v) {
+		int suma=0;
+		for (int i=0;i<v.length;i++) {
+			suma +=(v[i]*v[i]);
+		}
+		int varianza = suma/v.length;
+		return varianza;
+	}
+	
+	//-----------Funciones ejercicio05----------
+	//Vamos a crear el vector sin recibir vector en la funcion
+	/**
+	 * Funcion que pide la dimension de un vector y rellena
+	 * sus valores sin recibir parametros
+	 * @return vector de enteros
+	 */
+	public static int [] generaVector () {
+		System.out.println("Indica dimensión del vector: ");
+		int dim= teclado.nextInt();
+		int []v=new int [dim];
+		
+		for (int i=0;i<v.length;i++) {
+			System.out.println("["+i+"]: ");
+			v[i]=teclado.nextInt();
+		}
+		return v;
+	}
+	
+	//Ordenamiento burbuja
+	/**
+	 * Funcion que ordena los valores de un vector
+	 * de menor a mayor (metodo burbuja
+	 * @param v vector enteros
+	 */
+	public static void ordenarVector (int []v) {
+		for (int iter=0;iter<v.length;iter++) {
+			int pivote = v[iter];
+			int posPivote = iter;
+			for (int i=iter+1;i<v.length;i++) {
+				if (v[i]<pivote) {
+					pivote = v[i];
+					posPivote=i;
+				}
+			}
+			//intercambiar con variable auxiliar
+			int aux=v[iter];
+			v[iter]=v[posPivote];
+			v[posPivote]=aux;
+		}
+	}
+	
+	/**
+	 * Funcion que calcula la mediana de un vector
+	 * @param v vector de enteros
+	 * @return real
+	 */
+	public static double medianaVector (int []v) {
+		int posMediana=v.length/2;
+		double mediana=v[v.length/2];
+		for (int i=0;i<v.length;i++) {
+			if (v.length%2==0) {
+				mediana = (v[posMediana]+v[(posMediana)-1])/2.0;
+			}
+		}
+		return mediana;
+	}
+	
+	//------------Funciones ejercicio06------------
+	/**
+	 * Funcion que crea un vector real con valores aleatorios
+	 * @return vector de reales
+	 */
+	public static float [] crearVectorReal () {
+		System.out.println("Indica dimensión del vector: ");
+		int dim =teclado.nextInt();
+		float[]v=new float [dim];
+		for (int i=0;i<v.length;i++) {
+			System.out.println("["+i+"]: ");
+			v[i]=teclado.nextFloat();
+		}
+		return v;
+	}
+	
+	/**
+	 * Funcion que muestra los valores
+	 * de un vector de reales
+	 * @param v vector de reales
+	 */
+	public static void mostrarVectorReal (float []v) {
+		for (int i=0;i<v.length;i++) {
+			System.out.println("["+i+"] "+v[i]);
+		}
+	}
+	
+	/**
+	 * Funcion que busca la posicion de un valor
+	 * en un vector de reales
+	 * @param v vector de reales
+	 * @param valor real
+	 * @return entero
+	 */
+	public static int busqueda (float []v, float valor) {
+		int posValor=-1;
+		
+		for (int i=0;i<v.length;i++) {
+			if (v[i]==valor) {
+				posValor=i;
+			}
+		}
+		return posValor;
+	}
+	
+	//---------Funciones ejercicio07---------
+	public static void ordenarParesImpares (float []v) {
+		//ordenar pares a un lado y impares al otro
+		int i=0;
+		int j=v.length-1;
+		while (i<j) {
+			if (v[i]%2==0) i++;
+			else {
+				if (v[j]%2!=0) j--;
+				else {
+					float aux =v[i];
+					v[i]=v[j];
+					v[j]=aux;
+				}
+			}
+		}
+		//ordenar pares de menor a mayor e impares de mayor a menor
+		for (int iter =0;iter<v.length;iter++) {
+			for (i=0;i<v.length-1;i++) {
+				if (v[i]%2==0 && v[i+1]%2==0 && v[i]>v[i+1] ) {
+					float aux =v[i];
+					v[i]=v[i+1];
+					v[i+1] = aux;
+				}
+				else {
+					if (v[i]%2!=0 && v[i+1]%2!=0 && v[i]<v[i+1] ) {
+						float aux =v[i];
+						v[i]=v[i+1];
+						v[i+1] = aux;
+					}
+				}
+			}
+		}
+		
+		//------------Funciones ejercicio08------------
+		
+		
+	}
+}

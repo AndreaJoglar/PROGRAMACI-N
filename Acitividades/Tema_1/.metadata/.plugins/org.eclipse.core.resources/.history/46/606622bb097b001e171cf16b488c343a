@@ -1,0 +1,40 @@
+package ficheros2_1;
+
+import java.util.Scanner;
+
+public class ejercicio02b {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* pedir número entero positivo
+		 * mostrar impares desde 1 hasta el número
+		 * separados por comas
+		 */
+		
+		System.out.println("Introduce un número entero positivo: ");
+		int num = teclado.nextInt();
+		
+		
+		
+		while (num < 0) {
+			System.out.println("Error: número negativo. Por favor, introduzca un número entero positivo: ");
+			num = teclado.nextInt();
+		}
+		
+		System.out.println("Números impares: ");
+		
+		for (int cont = 1; cont <= num; cont++) {
+			if ((cont % 2 != 0) && (cont == num)) {
+				System.out.print(cont+".");
+			}
+			else {
+				if (cont % 2 != 0) {
+					System.out.print(cont+", ");
+				}
+			}
+		}
+
+	}
+
+}

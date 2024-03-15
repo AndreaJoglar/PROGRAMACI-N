@@ -1,0 +1,42 @@
+package EjemplosClase;
+
+import java.util.Scanner;
+
+public class Entrega {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* mesualidades necesaria para devolver préstamo contMes
+		 * préstamo
+		 * importeFinal = prestamo * 0.05;
+		 * cuantía 1 = 10
+		 * cada vez que sumemos 1 mes, cuantia * 2;
+		 * pendiente = importeFinal - cuantíaMes
+		 * 
+		 */
+		System.out.println("Introduce importe del préstamo: ");
+		double prestamo = teclado.nextDouble();
+		double importeFinal = prestamo + (prestamo * 0.05);
+		System.out.println("Debes devolver "+importeFinal);
+		int contMes = 1;
+		double cuantia = 10;
+		
+		while (importeFinal > cuantia) {
+			importeFinal = importeFinal - cuantia;
+			System.out.println("Mes ("+contMes+") "+cuantia+" (cantidad pendiente "+importeFinal+")");
+			contMes++;
+			cuantia = cuantia * 2;
+		}
+		if (importeFinal < cuantia) {
+			cuantia = importeFinal;
+			importeFinal = importeFinal - importeFinal;
+			System.out.println("Mes ("+contMes+") "+cuantia+" (cantidad pendiente "+importeFinal+")");
+		}
+		
+		
+
+
+	}
+
+}

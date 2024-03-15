@@ -1,0 +1,27 @@
+package Ficheros;
+
+public class Sobrecarga {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		funcion (2);
+		funcion(2, 4);
+		funcion (5.2);
+		funcion (true);
+
+	}
+	public static void funcion (int param1) {
+		System.out.println("Funcion 1 parametro entero: ");
+	}
+	public static void funcion (int param1, int param2){
+		System.out.println("Funcion 2 parametros entero: ");
+	}
+	public static void funcion (double param1) {
+		System.out.println("Funcion 1 parametro real: ");
+	}
+	public static void funcion (boolean param1) {
+		System.out.println("Funcion 1 parametro boolean: ");
+	}
+
+
+}

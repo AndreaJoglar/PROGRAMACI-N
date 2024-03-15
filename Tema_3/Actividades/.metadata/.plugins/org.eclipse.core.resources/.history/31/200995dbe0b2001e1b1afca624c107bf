@@ -1,0 +1,18 @@
+package Ficheros;
+
+public class ejercicio08 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int []v=new int [200];
+		Libreria.crearVectorAleatorio(v);
+		Libreria.mostrarVector(v);
+		int [] contarVeces = new int [10];
+		for (int i=0;i<10;i++) {
+			contarVeces[i]=Libreria.contarValor(contarVeces, i);
+		}
+
+	}
+
+}

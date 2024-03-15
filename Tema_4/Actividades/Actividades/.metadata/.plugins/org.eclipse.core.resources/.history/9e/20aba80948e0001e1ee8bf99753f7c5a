@@ -1,0 +1,30 @@
+package ejercicio1;
+
+public class ProductoGrande extends Producto {
+	
+	private double plusMontaje;
+
+	/**
+	 * @param referencia
+	 * @param nombre
+	 * @param precio
+	 * @param plusMontaje
+	 */
+	public ProductoGrande(String referencia, String nombre, double precio, double plusMontaje) {
+		super(referencia, nombre, precio);
+		this.plusMontaje = plusMontaje;
+	}
+
+	@Override
+	public String toString() {
+		return "ProductoGrande [plusMontaje=" + plusMontaje + ", referencia=" + referencia + ", nombre=" + nombre
+				+ ", precio=" + precio + "]";
+	}
+	
+	@Override
+	public double precioConIva(int porcentaje) {
+		double precioTotal = precio + plusMontaje;
+		return (precioTotal + (precioTotal * porcentaje/100));
+	}
+	
+}

@@ -1,0 +1,36 @@
+package ficheros2_1_3;
+
+import java.util.Scanner;
+
+public class ejercicio05 {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* determinar si un número es mágico
+		 * ejemplo: num = 12345
+		 * Si las posiciones pares las ocupan números pares
+		 * y las posiciones impares las ocupan números impares
+		 */
+		
+		System.out.println("Escribe un número: ");
+		int num = teclado.nextInt();
+		int cont = 0;
+		
+		while (num > 0) {
+			int cifra = num % 10;
+			num = num / 10;
+			//for (int cont = 1; cont <= num; cont++) {
+				if (cifra % 2 == 0) {
+					System.out.println("La cifra "+cifra+" es par y ocupa la posición ");	
+				}
+				else {
+					System.out.println("La cifra "+cifra+" es impar y ocupa la posición ");
+				}
+			}
+		}
+		
+
+	
+
+}

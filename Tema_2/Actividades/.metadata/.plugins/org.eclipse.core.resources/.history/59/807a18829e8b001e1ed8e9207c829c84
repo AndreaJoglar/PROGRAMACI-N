@@ -1,0 +1,18 @@
+package Ficheros;
+
+public class ejercicio07 {
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Libreria.menuFahrenheit();
+		
+		int option = Libreria.menuFahrenheit();
+		if(option == 1) {
+			Libreria.conversorFahrenheit();
+		}
+
+	}
+
+}

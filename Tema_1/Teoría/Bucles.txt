@@ -1,0 +1,30 @@
+Bucles
+Ej.:
+Queremos sacar un "hola mundo" 5 veces:
+Hasta ahora hacíamos 5 sysos.
+Peeero para ahorrar tiempo, vamos a estudiar el cuble "while"
+- while (condición) {
+	ejecutamos un bloque de instrucciones}
+Si la condición es cierta, ejecutamos el bloque y vuelve pa'arriba.
+
+Hay que tener en cuenta el avance del bucle, es decir, si la condición siempre
+es cierta, caemos en un bucle infinito.
+Por eso, hay que pensar en ese concepto de avance del bucle.
+- inicializar la condición.
+
+Volviendo al ejemplo "hola mundo"
+int cont = 1;
+while (cont<=5) {
+	syso ("hola")}
+	cont = cont+1;
+De esta manera, conseguimos que el bucle finalice cuando cont llegue al valor 5.
+Resumen pasos:
+1. bloque instrucciones "Hola"
+2. (condición) para ejecutar el bucle: cont <= 5
+3. inicializar condición
+4. tener en cuenta el avance del bucle (lo ponemos como //comentario
+5. para eso, ponemos cont = cont + 1, para romper el bucle infinito
+
+Como la instrucción "cont = cont + 1" se usa mucho, se creó la instrucción cont ++.
+Lo mismo para "cont = cont - 1", que se creó la instrucción cont --.
+

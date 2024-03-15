@@ -1,0 +1,36 @@
+package EjemplosClase;
+
+import java.util.Scanner;
+
+public class Pruebas {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* Calcular la raíz cuadrada de un número entero
+		 */
+		
+		System.out.println("Introduce un número: ");
+		double num = teclado.nextDouble();
+	
+		double potencia = 0;
+		int raiz = 0;
+		
+		while (num > potencia) {
+			raiz++;
+			potencia = raiz * raiz;
+			if (potencia > num) raiz--;
+		}
+		if (num < 0) {
+			System.out.println("ERROR. No se puede calcular la raíz de un número negativo.");
+		}
+		else {
+			System.out.println("La raíz entera positiva de "+num+" es "+ raiz);
+		}
+		
+		
+
+	}
+
+}
+

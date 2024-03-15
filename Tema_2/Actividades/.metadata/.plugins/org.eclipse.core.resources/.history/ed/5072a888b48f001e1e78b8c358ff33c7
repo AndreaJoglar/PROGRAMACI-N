@@ -1,0 +1,239 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class Libreria {
+	static Scanner teclado = new Scanner(System.in);
+	
+	/**
+	 * Determina si un numero es primo
+	 * @param num: entero
+	 * @return boolean
+	 */
+	public static boolean esPrimo (int num) {
+		for (int div = 2; div < num; div++) {
+			if (num % div == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/**
+	 * Muestra el siguiente numero primo de un numero dado
+	 * @param num: entero
+	 */
+	public static void primoSiguiente (int num) {
+		num++;
+		while (esPrimo(num)==false) {
+			num++;
+		}
+		if (esPrimo(num)==true) {
+			System.out.println("Primo siguiente: "+num);
+		}	
+	}
+	
+	public static int primSiguiente (int num) {
+		num++;
+		while (esPrimo(num)==false) {
+			num++;
+		}
+		if (esPrimo(num)==true) {
+			return num;
+		}
+		return 0;
+		
+	}
+	
+	/**
+	 * Calcula los numeros primos que hay dentro de un intervalo
+	 * @param min: entero
+	 * @param max: entero
+	 */
+	public static void primosIntervalo (int min, int max) {
+		for (; min <= max; min++) {
+			boolean esPrimo = true;
+			if (min == 1) {
+				min = 2;
+			}
+			for (int div=2; div < min;div++) {
+				if (min % div == 0) {
+					esPrimo = false;
+				}
+			}
+			if (esPrimo == true) {
+				System.out.println(min);
+			}
+		}
+	}
+	
+	/**
+	 * Cuenta numero de cifras de un numero
+	 * @param num: entero
+	 * @return entero
+	 */
+	public static int contarCifra (int num) {
+		int contCifra = 0;
+		while (num > 0) {
+			num = num / 10;
+			contCifra++;
+		}
+		return contCifra;
+	}
+	
+	/**
+	 * Devuelve la posicion de un digito dentro de un numero empezando
+	 * por la ultima cifra.
+	 * @param num: entero
+	 * @param numPos: entero
+	 * @return: entero
+	 */
+	public static int posicionNum (int num, int numPos) {
+		int contPosicion = 1;
+		boolean encontrado = false;
+		while (encontrado == false) {
+			int cifra = num % 10;
+			if (cifra == numPos) {
+				encontrado = true;
+			}
+			else {
+				num = num / 10;
+				contPosicion++;
+			}
+		}
+		return contPosicion;
+	}
+	
+	/**
+	 * Invierte un numero
+	 * @param num: entero
+	 * @return entero
+	 */
+	public static int numeroInv (int num) {
+		int numInv = 0;
+		while (num > 0) {
+			int cifra = num % 10;
+			numInv = (numInv * 10) + cifra;
+			num = num / 10;	
+		}
+		return numInv;
+	}
+	
+	/**
+	 * Devuelve la posicion de un digito dentro de un numero empezando
+	 * por la primera cifra.
+	 * @param num: entero
+	 * @param numPos: entero
+	 * @return: entero
+	 */
+	public static int posicionNumInv (int num, int numPos) {
+		num = numeroInv(num);
+		int contPosicion = posicionNum(num, numPos);
+		return contPosicion;	
+	}
+	
+	/**
+	 * Determina la cifra que se encuentra en una determinada posicion
+	 * de un numero introducido por teclado. Empieza por las unidades.
+	 * @param num: entero
+	 * @param posicion: entero
+	 */
+	public static void numPosX (int num, int posicion) {
+		int contPos = 1;
+		int cifra = 0;
+		boolean encontrePos = false;
+		
+		while ((num > 0) && (encontrePos == false)) {
+			if (contPos == posicion) {
+				cifra = num % 10;
+				encontrePos = true;
+				num = 0;
+			}
+			else {
+				num = num / 10;
+				contPos++;
+			}
+		}
+		if (encontrePos == true) {
+			System.out.println("El número "+cifra+" esta en la posicion "+posicion);
+		}
+	}
+	
+	/**
+	 * Retorna la cifra que se encuentra en una determinada posicion
+	 * dentro de un numero. Empieza por las unidades.
+	 * @param num: entero
+	 * @param posicion: entero
+	 * @return: entero
+	 */
+	public static int PosicionDada (int num, int posicion) {
+		int contPos = 1;
+		int cifra = 0;
+		boolean encontrePos = false;
+		
+		while ((num > 0) && (encontrePos == false)) {
+			if (contPos == posicion) {
+				cifra = num % 10;
+				encontrePos = true;
+				num = 0;
+			}
+			else {
+				num = num / 10;
+				contPos++;
+			}
+		}
+		if (encontrePos == true) {
+			return cifra;
+		}
+		return 0;
+	}
+	
+	/**
+	 * Determina la cifra que se encuentra en una determinada posicion
+	 * de un numero introducido por teclado. Empieza por la posición más alta.
+	 * @param num
+	 * @param posicion
+	 */
+	public static void numPosXInv (int num, int posicion) {
+		num = numeroInv(num);
+		int contPos = 1;
+		int cifra = 0;
+		boolean encontrePos = false;
+		
+		while ((num > 0) && (encontrePos == false)) {
+			if (contPos == posicion) {
+				cifra = num % 10;
+				encontrePos = true;
+				num = 0;
+			}
+			else {
+				num = num / 10;
+				contPos++;
+			}
+		}
+		if (encontrePos == true) {
+			System.out.println("El número "+cifra+" esta en la posicion "+posicion);
+		}
+	}
+	
+	
+	
+	/*
+	 * Todas son con return
+	 * Pares e impares
+	 * tiene decimales
+	 * sacar cifra por la izquierda
+	 * sacar cifra derecha
+	 * determinar si es positivo
+	 * quitar cifra por delante
+	 * devolver factorial de un numero
+	 * devolver combinatorio
+	 * devolver el resto
+	 * devolver el cociente
+	 * añadir una nueva cifra a un número (por delante y por detrás)
+	 * ¿añadir una cifra en cualquier posición dentro de un número?
+	 * calcular media de numeros
+	 * ordenar numeros (de menor a mayor o de mayor a menor)
+	 */
+
+}

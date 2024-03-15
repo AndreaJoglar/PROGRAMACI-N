@@ -1,0 +1,20 @@
+package ejercicio;
+
+public class Venta {
+
+	private static int CONT_VENTAS;
+	
+	private int idVenta;
+	private Comprador comprador;
+	private DetalleVenta [] detalle;
+	
+	public Venta {
+		CONT_VENTAS++;
+		this.idVenta = CONT_VENTAS;
+		this.comprador = insertarComprador(comprador);
+	}
+
+	private Comprador insertarComprador(Comprador c) {
+		this.comprador = c;
+	}
+}

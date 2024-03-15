@@ -1,0 +1,32 @@
+package ejercicio1;
+
+public class ElectrodomesticoConInstalacion extends Electrodomestico {
+	
+	private double plusMontaje;
+
+	/**
+	 * @param nombre
+	 * @param precio
+	 * @param plusMontaje
+	 */
+	public ElectrodomesticoConInstalacion(String nombre, double precio, double plusMontaje) {
+		super(nombre, precio);
+		this.plusMontaje = plusMontaje;
+	}
+
+	/**
+	 * @return the plusMontaje
+	 */
+	public double getPlusMontaje() {
+		return plusMontaje;
+	}
+
+	/**
+	 * @param plusMontaje the plusMontaje to set
+	 */
+	public void setPlusMontaje(double plusMontaje) {
+		this.plusMontaje = plusMontaje;
+	}
+	
+	
+}

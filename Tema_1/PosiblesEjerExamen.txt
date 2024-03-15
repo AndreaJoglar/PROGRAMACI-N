@@ -1,0 +1,3 @@
+candidatos examen programación: 
+Ejercicio 19 - act 2 (empleados de la fábrica)
+Ejercicio 1 - act repaso 2_1 (todos los años cumplidos desde el nacimiento)

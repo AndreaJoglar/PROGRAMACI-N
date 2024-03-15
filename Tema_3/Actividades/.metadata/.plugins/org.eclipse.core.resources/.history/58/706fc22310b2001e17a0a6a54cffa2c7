@@ -1,0 +1,17 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class ejercicio02b {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Introduce dimensión de un vector: ");
+		int dim=teclado.nextInt();
+		int []v=new int [dim];
+		Libreria.leerVector2(v);
+
+	}
+
+}

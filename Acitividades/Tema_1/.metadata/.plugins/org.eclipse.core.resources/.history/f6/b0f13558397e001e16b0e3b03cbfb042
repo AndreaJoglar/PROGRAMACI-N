@@ -1,0 +1,26 @@
+package EjemplosClase;
+
+import java.util.Scanner;
+
+public class Pruebas {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.println("Introduce un número: ");
+		int num = teclado.nextInt();
+		
+		int nuevoNumero = 0;
+		
+		for (int cont = 0; num > 0; cont++) {
+			int cifra = num % 10;
+			num = num / 10;
+			nuevoNumero = (nuevoNumero * 10) + cifra;
+		}
+		System.out.println("Número invertido: "+nuevoNumero);
+
+
+	}
+
+}

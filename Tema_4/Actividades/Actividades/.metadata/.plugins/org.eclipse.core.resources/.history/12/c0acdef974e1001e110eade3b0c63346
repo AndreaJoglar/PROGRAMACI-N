@@ -1,0 +1,7 @@
+package ejercicio;
+
+public class Tienda {
+
+	private Producto [] producto;
+	private Venta [] venta
+}

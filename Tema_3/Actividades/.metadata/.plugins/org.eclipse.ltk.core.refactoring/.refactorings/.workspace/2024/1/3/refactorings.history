@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;Libreria_Vectores&apos; to &apos;Libreria_T3&apos;" description="Rename resource &apos;Libreria_Vectores&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/Libreria_Vectores" name="Libreria_T3" stamp="1705312591472" updateReferences="true"/>&#x0A;<refactoring comment="Delete resource &apos;Libreria_T3&apos;" deleteContents="false" description="Delete resource &apos;Libreria_T3&apos;" element1="/Libreria_T3" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1705313220249"/>
+</session>

@@ -1,0 +1,104 @@
+package ejercicio;
+
+import java.util.Arrays;
+
+public class Venta {
+
+	private static int CONT_VENTAS;
+	
+	private int idVenta;
+	private Comprador comprador;
+	private DetalleVenta [] detalle;
+	
+	public Venta() {
+		CONT_VENTAS++;
+		this.idVenta = CONT_VENTAS;
+		this.comprador = insertarComprador(comprador);
+		this.detalle = null;
+	}
+	
+	/**
+	 * @return the idVenta
+	 */
+	public int getIdVenta() {
+		return idVenta;
+	}
+
+	/**
+	 * @param idVenta the idVenta to set
+	 */
+	public void setIdVenta(int idVenta) {
+		this.idVenta = idVenta;
+	}
+
+	/**
+	 * @return the comprador
+	 */
+	public Comprador getComprador() {
+		return comprador;
+	}
+
+	/**
+	 * @param comprador the comprador to set
+	 */
+	public void setComprador(Comprador comprador) {
+		this.comprador = comprador;
+	}
+
+	/**
+	 * @return the detalle
+	 */
+	public DetalleVenta[] getDetalle() {
+		return detalle;
+	}
+
+	/**
+	 * @param detalle the detalle to set
+	 */
+	public void setDetalle(DetalleVenta[] detalle) {
+		this.detalle = detalle;
+	}
+
+
+	/**
+	 * Metodo para ingresar compradores
+	 * @param c Comprador 
+	 * @return Comprador
+	 */
+	public Comprador insertarComprador(Comprador c) {
+		this.comprador = c;
+		return c;
+	}
+	
+	/**
+	 * Ingresa un nuevo detalle de venta a la venta
+	 * @param d DetalleVenta
+	 */
+	public void ingresarDetalleVenta (DetalleVenta d) {
+		if (detalle == null) {
+			detalle = new DetalleVenta [1];
+			detalle[0] = d;
+		}
+		else {
+			int nuevoTamanio = detalle.length + 1;
+			
+			DetalleVenta [] nuevoDetalle = new DetalleVenta [nuevoTamanio];
+			
+			for (int i = 0; i < detalle.length; i++) {
+				nuevoDetalle[i] = detalle[i];
+			}
+			
+			int pos = nuevoTamanio - 1;
+			nuevoDetalle[pos] = d;
+			detalle = nuevoDetalle;
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "Venta: \n\tIDVenta: " + idVenta 
+				+ "\n\tComprador: " + comprador + detalle.toString();
+	}
+	
+	
+}

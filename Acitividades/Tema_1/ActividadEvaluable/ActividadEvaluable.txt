@@ -1,0 +1,19 @@
+Declarar teclado;
+
+Declarar variables;
+int num, suma, cont;
+num = 1;
+contador = 0;
+suma = 0;
+double media;
+
+Mientras num !=0:
+	Pedir número por teclado
+	1. si num divisible entre 5 y mayor que 0;
+	suma = num + suma;
+	contador++;
+	2) si num == 0
+	Mostrar: ¡¡Se acabó!!
+
+Calcular media => media = (double) suma/contador;
+Mostrar por pantalla: La media es +media

@@ -1,0 +1,13 @@
+package Ficheros_Vectores;
+
+public class Repaso4_ejer1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int v[]= {2,5,8,9,3,4,6,7};
+		LibreriaRepaso.insertaValor(v, 11, 3);
+		
+	}
+
+}

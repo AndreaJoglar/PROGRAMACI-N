@@ -1,0 +1,17 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class ejercicio06 {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		double []v=Libreria.crearVectorReal();
+		Libreria.mostrarVectorReal(v);
+		
+		
+	}
+
+}

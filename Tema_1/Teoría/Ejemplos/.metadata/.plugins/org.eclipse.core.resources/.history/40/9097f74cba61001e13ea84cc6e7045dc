@@ -1,0 +1,31 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class ejercicio7Clase {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		
+	
+		// TODO Auto-generated method stub
+		/* leer una secuencia de números hasta
+		 * introducir un cer y sumarlos a medida que se leen
+		 * variable suma se suele llamar "acumulador"
+		 */
+		
+		System.out.println("Introduce un número: ");
+		int numero = teclado.nextInt();
+		int suma = 0;
+		
+		while (numero != 0) {
+			suma = suma + numero;
+			System.out.println("La suma es ="+suma);
+		}
+		
+		System.out.println("¡¡FIN!!");
+		
+		
+
+	}	
+}

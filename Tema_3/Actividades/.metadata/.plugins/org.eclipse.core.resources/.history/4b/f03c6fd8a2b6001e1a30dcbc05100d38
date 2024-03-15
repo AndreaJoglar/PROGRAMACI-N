@@ -1,0 +1,16 @@
+package Ficheros;
+
+public class ejercicio_04 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int [][]m= {{4,4,4,4,0},
+					{0,0,3,3,3},
+					{2,2,0,3,0},
+					{0,0,0,3,2},
+					{0,0,0,3,2}};
+		
+	}
+
+}

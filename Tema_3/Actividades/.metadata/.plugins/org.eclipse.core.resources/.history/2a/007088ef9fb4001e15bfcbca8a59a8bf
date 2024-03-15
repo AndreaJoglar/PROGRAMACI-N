@@ -1,0 +1,21 @@
+package Ficheros_Vectores;
+
+import java.util.Scanner;
+
+public class ejercicio_ApoyoVector {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.out.println("Indica dimensión del vector: ");
+		int dim = teclado.nextInt();
+		int v[] = new int [dim];
+		LibreriaApoyo.leerVector(v);
+		LibreriaApoyo.mostrarVector(v);
+		LibreriaApoyo.maximo(v);
+		LibreriaApoyo.minimo(v);
+		LibreriaApoyo.posicionValorMaximo(v);
+	}
+
+}

@@ -1,0 +1,26 @@
+package ejercicio;
+
+public class Pruebas {
+
+	public static void main(String[] args) {
+		
+		Producto p = new Producto("Pro1", "Fab1", 150, false);
+		
+		System.out.println(p.toString());
+		
+		Comprador comp = new Comprador("Sara", "García", "51123214Q");
+		
+		System.out.println(comp.toString());
+		
+		DetalleVenta det = new DetalleVenta(p, 2);
+		System.out.println(det.toString());
+		
+		System.out.println("\tPrecio total: " + det.precioTotal(2) + "\n");
+		
+		Venta v = new Venta();
+		v.insertarComprador(comp);
+		v.toString();
+		
+	}
+
+}

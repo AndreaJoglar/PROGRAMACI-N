@@ -1,0 +1,13 @@
+/**
+ * Enum TipoDanza. Permite determinar los estilos en los que se puede clasificar un grupo
+ * de danza dentro de la base de datos del festival.
+ */
+package ejercicio;
+
+public enum TipoDanza {
+
+	CLASICA,
+	TRADICIONAL,
+	CONTEMPORANEA,
+	URBANA;
+}

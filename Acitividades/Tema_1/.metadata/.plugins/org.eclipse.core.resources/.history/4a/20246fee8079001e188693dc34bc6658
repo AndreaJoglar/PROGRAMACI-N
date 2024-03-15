@@ -1,0 +1,42 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class Ejercicio10b {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/*Realiza un conversor de grados centígrados a grados Farenheir.
+		 * Nuestro algoritmo debe poder hacer la conversión en ambos sentidos
+		 * F = (9/5 * C) + 32
+		 */
+		
+		double temp;
+		int opcion;
+		
+		System.out.println("Medida 1-F 2-C");
+		opcion=teclado.nextInt();
+		
+		
+		
+		double resul = 0.0;
+		
+		if (opcion == 1) {
+			System.out.println("Temperatura: ");
+			temp = teclado.nextInt();
+			resul = ((temp-32)*5)/9;
+			System.out.println("Resultado es "+resul);
+		}
+		if (opcion == 2) {
+			System.out.println("Temperatura: ");
+			temp = teclado.nextInt();
+			resul = (9/5 * temp) + 32;
+			System.out.println("Resultado es "+resul);
+			}
+		if ((opcion != 1) && (opcion != 2)) {
+				System.out.println("Error. Elija entre 1 o 2.");
+			}
+
+	}
+}

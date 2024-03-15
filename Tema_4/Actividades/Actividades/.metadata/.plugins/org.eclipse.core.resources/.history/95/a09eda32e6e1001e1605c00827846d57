@@ -1,0 +1,37 @@
+package ejercicio;
+
+import java.util.Scanner;
+
+public class Main {
+	static Scanner teclado = new Scanner(System.in);
+	static Tienda tienda = new Tienda();
+	public static void main(String[] args) {
+		
+		
+		
+		cargarProductos();
+		
+		nuevaVenta();
+
+		System.out.println(tienda.mostrarProductos());
+	}
+
+	private static void nuevaVenta() {
+		System.out.println();
+		
+		Venta nueva = new Venta("pepe");
+		nueva.añadirDetalle(tienda.buscarProducto(2), 10);
+		nueva.añadirDetalle(tienda.buscarProducto(4), 1);
+		nueva.añadirDetalle(tienda.buscarProducto(3), 10);
+		
+	}
+
+	private static void cargarProductos() {
+		Producto p1 = new Producto(1, "prod1", 100, 100.0);
+		Producto p2 = new Producto(2, "prod2", 200, 200.0);
+		ProductoEnOferta p3 = new ProductoEnOferta(3, "prod3", 300, 300.0, 2, 10);
+		ProductoEnOferta p4 = new ProductoEnOferta(4, "prod4", 400, 400.0, 4, 5);
+		
+	}
+
+}

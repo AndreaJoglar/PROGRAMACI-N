@@ -1,0 +1,42 @@
+package ejercicio;
+
+public class Tienda {
+
+	private Producto [] producto;
+	private Venta [] venta;
+	
+	/**
+	 * @param producto
+	 * @param venta
+	 */
+	public Tienda() {
+		this.producto = null;
+		this.venta = null;
+	}
+	
+	/**
+	 * Permite agregar un producto a la tienda
+	 * @param p Producto
+	 */
+	public void insertarProducto(Producto p) {
+		if (producto == null) {
+			producto = new Producto [1];
+			producto[0] = p;
+		}
+		else {
+			//>>>>Añadir lo que pasa si ya está el id
+			int nuevoTamanio = producto.length + 1;
+			
+			Producto [] nuevoProducto = new Producto [nuevoTamanio];
+			
+			for (int i = 0; i < producto.length; i++) {
+				nuevoProducto[i] = producto[i];
+			}
+			int pos = nuevoTamanio - 1;
+			nuevoProducto[pos] = p;
+			producto = nuevoProducto;
+		}
+	}
+	
+	
+}

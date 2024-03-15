@@ -1,0 +1,27 @@
+package Ficheros_Vectores;
+
+import java.util.Scanner;
+
+public class LibreriaRepaso {
+	static Scanner teclado = new Scanner(System.in);
+	
+	public static void insertaValor (int v[], int valor, int pos) {
+		if (pos<0 || pos>v.length) {
+			System.out.println("ERROR. Fuera de rango.");
+			return;
+		}
+		for (int i = v.length-2; i < v.length; i++) {
+			
+		}
+		v[pos]=valor;
+		
+		
+		int vNuevo[]=new int [v.length];
+		for (int i = 0; i < vNuevo.length; i++) {
+			
+		}
+		
+	
+	}
+
+}

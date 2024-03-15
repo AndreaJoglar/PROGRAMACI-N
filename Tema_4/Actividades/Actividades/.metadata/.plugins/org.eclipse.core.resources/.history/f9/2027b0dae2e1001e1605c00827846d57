@@ -1,0 +1,9 @@
+package ejercicio;
+
+public class Tienda {
+
+	private Producto [] productos;
+	private Venta [] ventas;
+	private int contProductos;
+	private int contVentas;
+}

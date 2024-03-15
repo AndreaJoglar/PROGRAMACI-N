@@ -1,0 +1,27 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class Libreria {
+	static Scanner teclado = new Scanner(System.in);
+	
+	/**
+	 * 
+	 * @param v
+	 */
+	public static void mostrarPuntosLuz (int v[]) {
+		
+		for (int i = 0; i < v.length; i++) {
+			if (i%2==0 && v[i]%2!=0) {
+				System.out.println(v[i]+" en la posición "+i+" es un punto de luz.");
+			}
+			else {
+				if(i%2==0 && v[i]%3==0) {
+					System.out.println(v[i]+" en la posición "+i+" es un punto de luz.");
+				}
+			}
+			
+		}
+	}
+
+}

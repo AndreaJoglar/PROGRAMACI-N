@@ -1,0 +1,16 @@
+package ejercicio;
+
+public class ProductoEnOferta extends Producto {
+
+	private int cantidadMinima;
+	private int porcentaje;
+	
+	
+	
+	@Override
+	public double calcularPrecio(int cod) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

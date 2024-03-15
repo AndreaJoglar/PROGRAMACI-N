@@ -1,0 +1,43 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class actividad {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int m [][]= new int [6][6];
+		
+		//crear tablero con todo ceros
+		for (int i = 0; i < m.length; i++) {
+			for (int j = 0; j < m[0].length; j++) {
+				m[i][j]=0;
+			}
+		}
+		
+		System.out.println(colocarBarcoFila(m, 2, 2, 4));//correcto
+		System.out.println(colocarBarcoFila(m, 4, 4, 4));//incorrecto fuera de rango
+		System.out.println(colocarBarcoFila(m, 2, 3, 1));//ya hay barco
+	}
+
+	public static boolean colocarBarcoFila(int[][] m, int filaInicio, int columnaInicio, int tam) {
+		//se desborda por las "columnas"
+		if (columnaInicio+tam-1>=m[0].length) {//fuera de rango se desborda de longitud
+			return false;
+		}
+		for (int j=columnaInicio;j<columnaInicio+tam;j++) {
+			if (m[filaInicio][j]!=0) return false; //poicion ocupada por barco
+		}
+		
+		for (int j=columnaInicio;j<columnaInicio+tam;j++) {
+			if (m[filaInicio][j]==tam); //marcar las posiciones
+		}
+		return true;
+		
+	}
+	
+	
+
+}

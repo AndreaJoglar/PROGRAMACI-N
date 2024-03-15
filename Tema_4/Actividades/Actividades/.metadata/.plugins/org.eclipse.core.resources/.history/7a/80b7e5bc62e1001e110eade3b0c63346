@@ -1,0 +1,44 @@
+package ejercicio1;
+
+public class Tienda {
+	private Electrodomestico [] electrodomesticos;
+	private Factura [] facturas;
+	
+	public Tienda () {
+		this.electrodomesticos = null;
+		this.facturas = null;
+	}
+	
+	public void insertarElectrodomestico (Electrodomestico e) {
+		if (electrodomesticos == null) {
+			electrodomesticos = new Electrodomestico [1];
+			electrodomesticos[0] = e;
+		}
+		else {
+			if (e.getReferencia() != null) {
+				System.out.println("No se puede insertar artista");
+			}
+			else {
+				int nuevoTamanio = electrodomesticos.length + 1;
+				Electrodomestico [] nuevoElectrodomesticos = new Electrodomestico [nuevoTamanio];
+				
+				for (int i = 0; i < electrodomesticos.length; i++) {
+					nuevoElectrodomesticos[i] = electrodomesticos[i];
+				}
+				int pos = nuevoTamanio - 1;
+				nuevoElectrodomesticos[pos] = e;
+				electrodomesticos = nuevoElectrodomesticos;
+			}
+		}
+	}
+	
+	public String listarElectrodomesticos() {
+		String texto = "";
+		for (int i = 0; i < electrodomesticos.length; i++) {
+			texto += electrodomesticos[i].toString() + "\n";
+		}
+		return texto;
+	}
+	
+	
+}

@@ -1,0 +1,443 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class Libreria {
+	static Scanner teclado = new Scanner(System.in);
+	
+	/**
+	 * Determina si un numero es primo
+	 * @param num: entero
+	 * @return boolean
+	 */
+	public static boolean esPrimo (int num) {
+		for (int div = 2; div < num; div++) {
+			if (num % div == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/**
+	 * Muestra el siguiente numero primo de un numero dado
+	 * @param num: entero
+	 */
+	public static void primoSiguiente (int num) {
+		num++;
+		while (esPrimo(num)==false) {
+			num++;
+		}
+		if (esPrimo(num)==true) {
+			System.out.println("Primo siguiente: "+num);
+		}	
+	}
+	
+	public static int primSiguiente (int num) {
+		num++;
+		while (esPrimo(num)==false) {
+			num++;
+		}
+		if (esPrimo(num)==true) {
+			return num;
+		}
+		return 0;
+		
+	}
+	
+	/**
+	 * Calcula los numeros primos que hay dentro de un intervalo
+	 * @param min: entero
+	 * @param max: entero
+	 */
+	public static void primosIntervalo (int min, int max) {
+		for (; min <= max; min++) {
+			boolean esPrimo = true;
+			if (min == 1) {
+				min = 2;
+			}
+			for (int div=2; div < min;div++) {
+				if (min % div == 0) {
+					esPrimo = false;
+				}
+			}
+			if (esPrimo == true) {
+				System.out.println(min);
+			}
+		}
+	}
+	
+	/**
+	 * Cuenta numero de cifras de un numero
+	 * @param num: entero
+	 * @return entero
+	 */
+	public static int contarCifra (int num) {
+		int contCifra = 0;
+		while (num > 0) {
+			num = num / 10;
+			contCifra++;
+		}
+		return contCifra;
+	}
+	
+	/**
+	 * Devuelve la posicion de un digito dentro de un numero empezando
+	 * por la derecha.
+	 * @param num: entero
+	 * @param numPos: entero
+	 * @return: entero
+	 */
+	public static int posicionNum (int num, int numPos) {
+		int contPosicion = 1;
+		boolean encontrado = false;
+		while (encontrado == false) {
+			int cifra = num % 10;
+			if (cifra == numPos) {
+				encontrado = true;
+			}
+			else {
+				num = num / 10;
+				contPosicion++;
+			}
+		}
+		return contPosicion;
+	}
+	
+	/**
+	 * Invierte un numero
+	 * @param num: entero
+	 * @return entero
+	 */
+	public static int numeroInv (int num) {
+		int numInv = 0;
+		while (num > 0) {
+			int cifra = num % 10;
+			numInv = (numInv * 10) + cifra;
+			num = num / 10;	
+		}
+		return numInv;
+	}
+	
+	/**
+	 * Devuelve la posicion de un digito dentro de un numero empezando
+	 * por la izquierda.
+	 * @param num: entero
+	 * @param numPos: entero
+	 * @return: entero
+	 */
+	public static int posicionNumInv (int num, int numPos) {
+		num = numeroInv(num);
+		int contPosicion = posicionNum(num, numPos);
+		return contPosicion;	
+	}
+	
+	/**
+	 * Determina la cifra que se encuentra en una determinada posicion
+	 * de un numero introducido por teclado. Empieza por la derecha.
+	 * @param num: entero
+	 * @param posicion: entero
+	 */
+	public static void numPosX (int num, int posicion) {
+		int contPos = 1;
+		int cifra = 0;
+		boolean encontrePos = false;
+		
+		while ((num > 0) && (encontrePos == false)) {
+			if (contPos == posicion) {
+				cifra = num % 10;
+				encontrePos = true;
+				num = 0;
+			}
+			else {
+				num = num / 10;
+				contPos++;
+			}
+		}
+		if (encontrePos == true) {
+			System.out.println("El número "+cifra+" esta en la posicion "+posicion);
+		}
+	}
+	
+	/**
+	 * Retorna la cifra que se encuentra en una determinada posicion
+	 * dentro de un numero. Empieza por la derecha.
+	 * @param num: entero
+	 * @param posicion: entero
+	 * @return: entero
+	 */
+	public static int PosicionDada (int num, int posicion) {
+		int contPos = 1;
+		int cifra = 0;
+		boolean encontrePos = false;
+		
+		while ((num > 0) && (encontrePos == false)) {
+			if (contPos == posicion) {
+				cifra = num % 10;
+				encontrePos = true;
+			}
+			else {
+				num = num / 10;
+				contPos++;
+			}
+		}
+		if (encontrePos == true) {
+			return cifra;
+		}
+		return 0;
+	}
+	
+	public static int PosicionDadaInv (int num, int posicion) {
+		num = numeroInv(num);
+		int contPos = 1;
+		int cifra = 0;
+		boolean encontrePos = false;
+		
+		while ((num > 0) && (encontrePos == false)) {
+			if (contPos == posicion) {
+				cifra = num % 10;
+				encontrePos = true;
+			}
+			else {
+				num = num / 10;
+				contPos++;
+			}
+		}
+		if (encontrePos == true) {
+			return cifra;
+		}
+		return 0;
+	}
+	
+	/**
+	 * Determina la cifra que se encuentra en una determinada posicion
+	 * de un numero introducido por teclado. Empieza por la izquierda.
+	 * @param num
+	 * @param posicion
+	 */
+	public static void numPosXInv (int num, int posicion) {
+		num = numeroInv(num);
+		int contPos = 1;
+		int cifra = 0;
+		boolean encontrePos = false;
+		
+		while ((num > 0) && (encontrePos == false)) {
+			if (contPos == posicion) {
+				cifra = num % 10;
+				encontrePos = true;
+				num = 0;
+			}
+			else {
+				num = num / 10;
+				contPos++;
+			}
+		}
+		if (encontrePos == true) {
+			System.out.println("El número "+cifra+" esta en la posicion "+posicion);
+		}
+	}
+	
+	/**
+	 * Determina si un numero es par
+	 * @param num: entero
+	 * @return: boolean
+	 */
+	public static boolean esPar (int num) {
+		if (num % 2 != 0) {
+			return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * Determina si un numero es impar
+	 * @param num: entero
+	 * @return: boolean
+	 */
+	public static boolean esImpar (int num) {
+		if (num % 2 == 0) {
+			return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * Determina si un numero tiene decimales
+	 * @param num:double
+	 * @return boolean
+	 */
+	public static boolean tieneDecimales (double num) {
+		if (num % 1 == 0) {
+			return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * Determina si un numero es positivo
+	 * @param num: entero
+	 * @return boolean
+	 */
+	public static boolean esPositivo (int num) {
+		if (num >= 0) {
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Calcula el factorial de un numero
+	 * @param num: entero
+	 * @return entero
+	 */
+	public static int factorial (int num) {
+		int resul = 1;
+		for (int i = 1; i <= num; i++) {
+			resul = resul * i;
+		}
+		return resul;
+	}
+	
+	/**
+	 * Devuelve la primera cifra de un numero
+	 * empezando por la derecha.
+	 * @param num: entero
+	 * @return entero
+	 */
+	public static int sacarCifra (int num) {
+		int cifra = num % 10;
+		return cifra;
+	}
+	
+	/**
+	 * Devuelve la primera cifra de un numero
+	 * empezando por la izquierda.
+	 * @param num: entero
+	 * @return entero
+	 */
+	public static int sacarCifraInv (int num) {
+		num = numeroInv(num);
+		int cifra = num % 10;
+		return cifra;
+	}
+	
+	/**
+	 * Quita la primera cifra de un numero
+	 * empezando por la derecha.
+	 * @param num: entero
+	 * @return entero
+	 */
+	public static int quitarCifra (int num) {
+		num = num/10;
+		return num;
+	}
+	
+	/**
+	 * Quita la primera cifra de un numero
+	 * empezando por la izquierda
+	 * @param num: entero
+	 * @return entero
+	 */
+	public static int quitarCifraInv (int num) {
+		num = numeroInv(num);
+		num = num/10;
+		num = numeroInv(num);
+		return num;
+	}
+	
+	/**
+	 * Devuelve el resto de una division
+	 * @param num: entero
+	 * @param div: entero
+	 * @return entero
+	 */
+	public static int resto (int num, int div) {
+		int resto = num % div;
+		return resto;
+	}
+	
+	/**
+	 * Calcula el cociente de una division
+	 * @param D: entero
+	 * @param div: entero
+	 * @return entero
+	 */
+	public static int cociente (int D, int div) {
+		int cociente = D /div;
+		return cociente;
+	}
+	
+	/**
+	 * Calcula la media de tres numeros
+	 * @param a: entero
+	 * @param b: entero
+	 * @param c: entero
+	 * @return real
+	 */
+	public static double media (int a, int b, int c) {
+		int suma = a + b + c;
+		double media = suma / 3.0;
+		return media;
+	}
+	
+	/**
+	 * Agrega una nueva cifra al final del numero
+	 * empezando por la derecha.
+	 * @param num: entero
+	 * @param cifra: entero
+	 * @return entero
+	 */
+	public static int nuevaCifra (int num, int cifra) {
+		num = (num * 10)+cifra;
+		return num;
+	}
+	
+	/**
+	 * Agrega una nueva cifra al principio del numero
+	 * empezando por la izquierda.
+	 * @param num: entero
+	 * @param cifra: entero
+	 * @return entero
+	 */
+	public static int nuevaCifraInv (int num, int cifra) {
+		num = numeroInv(num);
+		num = (num * 10)+cifra;
+		num = numeroInv(num);
+		return num;
+	}
+	
+	public static int nuevaCifraPos (int num, int cifra, int pos) {
+		int contPos = 1;
+		int digito = 0;
+		int acumul = 0;
+		boolean encontrePos = false;
+		while ((num > 0) && (encontrePos == false)) {
+			if (contPos == pos) {
+				digito = num % 10;
+				encontrePos = true;
+			}
+			else {
+				cifra = num % 10;
+				acumul = (acumul * 10) + cifra;
+				num = num / 10;
+				contPos++;
+			}
+		}
+		if (encontrePos == true) {
+			num = (num * 10) + cifra;
+			num = (num * ((int)Math.pow(10, contPos))) + acumul;
+			return num;
+		}
+		return 0;
+		
+	}
+	
+	/*
+	 * Todas son con return
+	 * añadir una nueva cifra a un número (por delante y por detrás)
+	 * ¿añadir una cifra en cualquier posición dentro de un número?
+	
+	 * ordenar numeros (de menor a mayor o de mayor a menor)
+	 */
+
+}

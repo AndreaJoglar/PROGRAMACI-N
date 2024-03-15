@@ -1,0 +1,14 @@
+package Ficheros;
+
+public class Mensaje1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// Este es un ejemplo
+		// de mensaje
+		// por varias líneas
+		
+
+	}
+
+}

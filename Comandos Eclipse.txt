@@ -1,0 +1,29 @@
+Comandos Eclipse:
+
+System.out.println (""); --> Sacar por pantalla
+
+System.out.print (""); --> Sacar por pantalla (con el dato al lado del texto entre comillas)
+
+Math.sqrt --> raíz cuadrada
+
+static Scanner teclado = new Scanner (System.in); --> el usuario mete los datos en la consola
+
+System.out.print("Introduce a: ");
+	a = teclado.nextInt(); --> el valor de la variable será el que escribamos en la consola
+
+CONDICIONALES SIMPLES:
+if (condición cualquiera ej.: a > 3) {
+	}
+	else { (equivale a "sino"
+	}
+
+and --> && (solo la condición es cierta si las dos variables son ciertas)
+or --> || (la condición es cierta si uno de los datos es cierto.
+	si los dos son falsos, la condición no es correcta)
+
+Math.PI = (ya saca el valor de Pi) Es un double
+Math.abs = calcula valor absoluto
+
+char caracter = cadena.charAt(0); 
+(para que identifique la letra que está en una posición de la cadena de caracteres)
+Ej: Sapo = la posición 0 sería la 's'

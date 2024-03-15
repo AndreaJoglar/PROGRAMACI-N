@@ -1,0 +1,29 @@
+package ficheros2_1_4;
+
+public class ejercicio03 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* imprimir forma diamante con asteriscos
+		 */
+		
+		for (int filas = 1; filas <= 5; filas++) {
+			System.out.println();
+			for (int espacio = 1; espacio <= 5 - filas; espacio++) {
+				System.out.print(" ");
+			}
+			for (int columna = 1; columna <= filas * 2; columna++) {
+				if (columna > 1) {
+					System.out.print("*");
+				}
+				else {
+					filas--;
+					System.out.println("*");
+				}
+			}
+		
+		}
+
+	}
+
+}

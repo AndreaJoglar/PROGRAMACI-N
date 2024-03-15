@@ -1,0 +1,38 @@
+package Ficheros2_1;
+
+import java.util.Scanner;
+
+public class ejercicio06 {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* pedir un número entero
+		 * triángulo rectángulo con números
+		 * 1
+		 * 3 1
+		 * 5 3 1
+		 * 7 5 3 1
+		 * 9 7 5 3 1
+		 * 
+		 * Primer número de cada fila = impares de la altura
+		 */
+		
+		System.out.println("Introduce número de filas del triángulo: ");
+		int numFilas = teclado.nextInt();
+		
+		for (int filas = 1; filas <= numFilas; filas++) {
+			System.out.println();
+			int num = (filas * 2) - 1;
+			for (int columnas = 1; columnas <= filas; columnas++) {
+				System.out.print(num+" ");
+			}
+		}
+		
+		
+		
+		
+
+	}
+
+}

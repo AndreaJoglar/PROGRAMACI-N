@@ -1,0 +1,15 @@
+package Ficheros_Vectores;
+
+import java.util.Scanner;
+
+public class LibreriaRepaso {
+	static Scanner teclado = new Scanner(System.in);
+	
+	public static int [] insertaValor (int v[], int valor, int pos) {
+		int vNuevo[]=new int [v.length];
+		
+		
+		return vNuevo;
+	}
+
+}

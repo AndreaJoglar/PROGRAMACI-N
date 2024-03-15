@@ -1,0 +1,12 @@
+package Ficheros;
+
+public class Ejercicios {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.println("esPrimo(17)"+Libreria.esPrimo(17));
+
+	}
+
+}

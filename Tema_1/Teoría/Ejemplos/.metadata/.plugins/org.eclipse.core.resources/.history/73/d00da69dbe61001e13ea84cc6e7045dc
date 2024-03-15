@@ -1,0 +1,29 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class ejercicio8c {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* leer y mostrar una secuencia de números
+		 * mientras sean pares
+		 */
+		boolean condicion = true;
+				
+		while (condicion == true)
+			System.out.println("Introduce un número: ");
+			int num = teclado.nextInt();
+			if (num % 2 == 0) {
+			System.out.println("El número par es "+num);
+			}
+			else {
+				condicion = false;
+			}
+		
+		}
+
+	}
+
+

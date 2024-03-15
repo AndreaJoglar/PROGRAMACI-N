@@ -1,0 +1,285 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class Libreria {
+	static Scanner teclado = new Scanner(System.in);
+	
+	/**
+	 * Muestra el area de un cuadrado
+	 * @param lado: entero
+	 */
+	public static void areaCuadrado (int lado) {
+		int area = lado * lado;
+		System.out.println("Area del cuadrado: "+area);
+	}
+	
+	/**
+	 * Calcula el perimetro de un cuadrado
+	 * @param lado: entero
+	 * @return entero
+	 */
+	public static int perimetroCuadrado (int lado) {
+		int perimetro = lado * 4;
+		return perimetro;
+	}
+	
+	/**
+	 * Muestra el area del circulo
+	 * @param radio: real
+	 */
+	public static void areaCirculo (double radio){
+		double area = Math.PI * (radio * radio);
+		System.out.println("Area del circulo: "+area);
+	}
+	
+	/**
+	 * Calcula el perimetro del circulo
+	 * @param radio: real
+	 * @return real
+	 */
+	public static double perimetroCirculo (double radio) {
+		double perimetro = 2 * Math.PI * radio;
+		return perimetro;
+	}
+	
+	/**
+	 * Determina si un numero es negativo
+	 * @param num: entero
+	 * @return boolean
+	 */
+	public static boolean esNegativo (int num) {
+		if (num < 0) return true;
+		else return false;
+	}
+	
+	/**
+	 * Calcula la raiz entera de un numero entero
+	 * @param num: entero
+	 * @return entero
+	 */
+	public static int raizEntera (int num) {
+		int raiz = 1;
+		while ((raiz * raiz <= num)) {
+			raiz++;
+		}
+		return (raiz -1);
+	}
+	
+	/**
+	 * Determina si un anio es bisiesto
+	 * @param anio: entero
+	 * @return boolean
+	 */
+	public static boolean esBisiesto (int anio) {
+		if (((anio % 4 == 0) && (anio % 100 != 0)) || (anio % 400 == 0)){
+			return true;
+		}
+		else return false; 
+		/* no haría falta el else porque el return no funciona como el syso,
+		 * en el momento en que retorna, finaliza la función.
+		 */
+	}
+	
+	/**
+	 * Determina si un numero tiene decimales
+	 * @param num: double
+	 * @return boolean
+	 */
+	public static boolean tieneDecimales (double num) {
+		if (num % 1 == 0) return false;
+		return true;
+	}
+	/**
+	 * Genera un menu para elegir una opcion dependiendo de 
+	 * si se introducen grados Fahrenheit o Centigrados
+	 * @return entero
+	 */
+	
+	
+	/**
+	 * Conversor de grados Centigrados a Fahrenheit
+	 * @return real
+	 */
+	public static double conversorFahrenheit () {
+		System.out.println("Introduce la temperatura: ");
+		double temp = teclado.nextDouble();
+		double F = (temp * 9/5) + 32;
+		return F;
+	}
+	
+	/**
+	 * Conversor de grados Fahrenheit a Centigrados
+	 * @return real
+	 */
+	public static double conversorCentigrados () {
+		System.out.println("Introduce la temperatura: ");
+		double temp = teclado.nextDouble();
+		double C = ((temp - 32)/9) * 5; 
+		return C;
+	}
+	
+	/**
+	 * Funcion que determina si a>b>c
+	 * @param a: entero
+	 * @param b: entero
+	 * @param c: entero
+	 * @return: boolean
+	 */
+	public static boolean ordenados (int a, int b, int c) {
+		if ((esMayor(a, b)) && (esMayor(b, c))){
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Funcion que determina si el primer parametro es mayor que el segundo
+	 * @param num1: entero
+	 * @param num2: entero
+	 * @return boolean
+	 */
+	public static boolean esMayor (int a, int b) {
+		if (a > b) {
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Funcion que calcula el numero de cifras de un numero
+	 * @param num: entero
+	 * @return: entero
+	 */
+	public static int numeroCifras (int num) {
+		int cont = 0;
+		while (num > 0) {
+			cont++;
+			num = num/10;
+		}
+		return cont;
+	}
+	
+	/**
+	 * Calcula el sueldo diario teniendo en cuenta numero de horas, tipo de turno
+	 * y si es domingo
+	 * @param numHoras
+	 * @param esDiurno
+	 * @param esDomingo
+	 * @return
+	 */
+	public static double sueldoDiario (int numHoras, boolean esDiurno, boolean esDomingo) {
+		int sueldoBase = 0;
+		if (esDiurno == true) {
+			sueldoBase = numHoras * 20;
+			if (esDomingo == true) {
+				sueldoBase = numHoras * (20+10);
+			}
+			else sueldoBase = numHoras * 20;
+		}
+		else {
+			sueldoBase = numHoras * 35;
+			if (esDomingo == true) {
+				sueldoBase = numHoras * (35+15);
+			}
+			else sueldoBase = numHoras * 35;
+		}
+		return sueldoBase;
+	}
+	
+	/**
+	 * Calcula el factorial de un numero
+	 * @param num: entero
+	 * @return: entero
+	 */
+	public static int factorial (int num) {
+		int resul = 1;
+		for (int i = 1; i <= num; i++) {
+			resul= resul * i;
+		}
+		return resul;
+	}
+	
+	/**
+	 * Determina si un numero es primo; determinamos que el 1 no es primo.
+	 * @param num: entero
+	 * @return: boolean
+	 */
+	public static boolean esPrimo (int num) {
+		if (num == 1) return false;
+		for (int valor = 2; valor < num; valor++) {
+			if (num%valor == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/**
+	 * Funcion que calcula el cociente de la division de un entero
+	 * @param D: entero
+	 * @param d: entero
+	 * @return: entero
+	 */
+	public static int cociente (int D, int d) {
+		int cont = 0;
+		while (D>=d) {
+			D=D-d;
+			cont++;
+		}
+		return cont;		
+	}
+	/**
+	 * Funcion que calcula el resto de la division de un entero
+	 * @param D: entero
+	 * @param d: entero
+	 * @return: entero
+	 */
+	public static int resto (int D, int d) {
+		while (D>=d) {
+			D=D-d;
+		}
+		return D;		
+	}
+	
+	/**
+	 * Funcion que incrementa un segundo la hora y la muestra
+	 * @param horas: entero
+	 * @param min: entero
+	 * @param seg: entero
+	 */
+	public static void hora (int horas, int min, int seg) {
+		seg++;
+		if (seg == 60) {
+			seg = 0;
+			min++;
+			if (min == 60) {
+				min = 0;
+				horas++;
+				if (horas == 24) {
+					horas = 0;
+				}
+			}
+		}
+		System.out.println("Hora incrementada: "+horas+":"+min+":"+seg);
+	}
+	
+	public static void ecuacion2Grado (int a, int b, int c) {
+		int raiz  = (b * b) - (4 * a * c);
+		if (raiz < 0) {
+			System.out.println("No tiene solución.");
+		}
+		else {
+			if (raiz == 0) {
+				double resul = ((-1) * b+Math.sqrt(raiz)) / (2 * a);
+				System.out.println("Una solución = "+resul);
+			}
+			else {
+				double resul1 = ((-1) * b+Math.sqrt(raiz)) / (2 * a);
+				System.out.println("Una solución = "+resul1);
+				double resul2 = ((-1) * b-Math.sqrt(raiz)) / (2 * a);
+				System.out.println("Solución 1 = "+resul1+" Solución 2 = "+resul2);
+			}
+		}
+	}
+}

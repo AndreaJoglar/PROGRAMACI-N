@@ -1,0 +1,30 @@
+package Ficheros_Matrices;
+
+import java.util.Scanner;
+
+public class ejercicio01 {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.out.println("Introduce número de filas: ");
+		int filas=teclado.nextInt();
+		System.out.println("Introduce número de columnas: ");
+		int columnas=teclado.nextInt();
+		
+		int [][]m=new int [filas][columnas];
+		Libreria2.leerMatriz(m);
+		Libreria2.mostrarMatriz(m);
+		Libreria2.sumaFilas(m);
+		Libreria2.sumaColumnas(m);
+		int [][] nuevaMatriz = Libreria2.intercambia(m);
+		Libreria2.mostrarMatriz(nuevaMatriz);
+		if (Libreria2.esSelectiva(m)) System.out.println("La matriz es selectiva.");
+		else System.out.println("La matriz no es selectiva.");
+		
+		Libreria2.maxFilaMatriz(m);
+		Libreria2.minColumnasMatriz(m);
+	}
+
+}

@@ -1,0 +1,14 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class ejercicio10 {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Introduce número de horas de trabajo diarias: ");
+		int horas = teclado.nextInt();
+	}
+
+}

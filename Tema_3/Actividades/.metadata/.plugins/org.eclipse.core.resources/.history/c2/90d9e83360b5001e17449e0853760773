@@ -1,0 +1,32 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class mapa2 {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int relieve [] = {2,3,4,5,5,3,5,5,4,3,2};
+		System.out.println(esValle(relieve));
+		System.out.println("Número de valles: "+valle(relieve));
+	}
+
+	public static boolean esValle(int[] relieve) {
+		for (int i = 1; i < relieve.length-2; i++) {
+			if(relieve[i]<relieve[i-1] && relieve[i]<relieve[i+1]) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public static int valle (int[]relieve) {
+		int contValle=0;
+		if (esValle(relieve))contValle++;
+		
+		return contValle;
+	}
+
+}

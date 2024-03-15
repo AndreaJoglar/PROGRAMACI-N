@@ -1,0 +1,18 @@
+package Ficheros;
+
+public class ejemplo3tabla5 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int cont = 10;
+		
+		while (cont >= 1) {
+			System.out.println("5 x"+cont+"="+5*cont);
+			//avance bucle
+			cont = cont -1;
+		}
+
+	}
+
+}

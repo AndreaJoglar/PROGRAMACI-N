@@ -1,0 +1,141 @@
+/**
+ * Subclase GrupoMusical. Aplica metodos heredados e incluye dos metodos propios para determinar
+ * si es necesario actualizar el presupuesto del grupo en funcion de si tiene tecnico propio
+ * o no.
+ */
+package ejercicio;
+
+/**
+ * @author Andrea Fernandez Joglar
+ * @version 1.2
+ */
+public class GrupoMusical extends Artista {
+
+	private final String ID_MUSICA = "GM";
+	
+	private static int contIdMusical = 0;
+	
+	private String idMusica;
+	private EstiloMusical estilo;
+	private boolean tieneTecnicoSonido;
+	
+	/**
+	 * Constructor de la clase Grupo Musical con todos los parametros
+	 * @param nombreArtista String
+	 * @param manager Manager
+	 * @param cache real
+	 * @param estilo TipoMusical
+	 */
+	public GrupoMusical(String nombreArtista, Manager manager, double cache,
+						EstiloMusical estilo, boolean tieneTecnicoSonido) {
+		super(nombreArtista, manager, cache);
+		contIdMusical++;
+		this.idMusica = asignarIdentificador();
+		this.estilo = estilo;
+		this.tieneTecnicoSonido = tieneTecnicoSonido;
+	}	
+	
+	/**
+	 * Metodo get del atributo identificadorMusica
+	 * @return the identificadorMusica
+	 */
+	public String getIdMusica() {
+		return idMusica;
+	}
+
+	/**
+	 * Metodo set del atributo identificadorMusica
+	 * @param identificadorMusica String
+	 */
+	public void setIdMusica(String identificadorMusica) {
+		this.idMusica = identificadorMusica;
+	}
+
+	/**
+	 * Metodo get del atributo estilo
+	 * @return estilo TipoMusical
+	 */
+	public EstiloMusical getEstilo() {
+		return estilo;
+	}
+
+	/**
+	 * Metodo set del atributo estilo
+	 * @param estilo TipoMusical
+	 */
+	public void setEstilo(EstiloMusical estilo) {
+		this.estilo = estilo;
+	}
+
+	/**
+	 * Metodo get del atributo tiene tecnico de sonido
+	 * @return tieneTecnicoSonido boolean
+	 */
+	public boolean isTieneTecnicoSonido() {
+		return tieneTecnicoSonido;
+	}
+
+	/**
+	 * Metodo set del atributo tiene tecnico de sonido
+	 * @param tieneTecnicoSonido boolean
+	 */
+	public void setTieneTecnicoSonido(boolean tieneTecnicoSonido) {
+		this.tieneTecnicoSonido = tieneTecnicoSonido;
+	}
+
+	/**
+	 * Metodo que determina si el GrupoMusical necesita tecnico de sonido
+	 * @param necesitaTec boolean
+	 * @return String
+	 */
+	public String necesitaTecnico (boolean necesitaTec) {
+		String tecnico = "\n\tNecesita técnico de sonido: ";
+		
+		if (tieneTecnicoSonido) {
+			tecnico = tecnico + "NO";
+		}
+		else {
+			tecnico = tecnico + "SÍ";
+		}
+		return tecnico;
+	}
+	
+	/**
+	 * Metodo que actualiza el cache del grupo si aporta su propio tecnico de sonido.
+	 * En ese caso, aumentara el precio 500 euros para cubrir los gastos de la contratacion del
+	 * tecnico
+	 * @return double
+	 */
+	public double actualizarCache() {
+		double cacheFinal = super.getCache();
+		
+		if (!this.tieneTecnicoSonido) {
+			cacheFinal += 500;
+		}
+		
+		return cacheFinal;
+	}
+	
+	
+	@Override
+	public String asignarIdentificador() {
+		String id = super.asignarIdentificador() + this.ID_MUSICA + contIdMusical;
+		
+		super.setIdArtista(id);
+		
+		return id;
+	}
+
+	@Override
+	public void mostrarDisciplina() {
+		System.out.println("****************************");
+		System.out.println("Grupo Musical: " + this.idMusica 
+							+ "\nEstilo Musical: " + this.estilo);
+		System.out.println(this.toString() + necesitaTecnico(tieneTecnicoSonido));
+		
+		if(!tieneTecnicoSonido) {
+			System.out.println("\tCaché final = " + actualizarCache() + "\n");
+		}	
+
+	}
+}

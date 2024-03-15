@@ -1,0 +1,11 @@
+package Ficheros_Vectores;
+
+import java.util.Scanner;
+
+public class LibreriaApoyo {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void leerVector (int v []) {
+		
+	}
+}

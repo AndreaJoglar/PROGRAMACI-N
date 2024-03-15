@@ -1,0 +1,34 @@
+package ejercicio;
+
+public class pruebas {
+
+	public static void main(String[] args) {
+		
+		Manager m = new Manager("Nombre1", "Apellido1", "telefono1", "email1", "empresa1");
+		
+		GrupoMusical g = new GrupoMusical("Fito", m, 18000, TipoMusical.ROCK, true);
+		GrupoMusical g2 = new GrupoMusical("Dixebra", m, 4000, TipoMusical.PUNK, false);
+		
+		
+		
+		GrupoDanza d = new GrupoDanza("Danza1", m, 10000, TipoDanza.TRADICIONAL, "Camerún");
+		
+		
+		
+		Festival f = new Festival();
+		f.insertarArtista(d);
+		f.insertarArtista(g2);
+		f.insertarArtista(g);
+		
+		f.listarArtista();
+		
+
+		f.eliminarArtista("ART-3");
+		
+		System.out.println("Eliminado: ");
+		f.listarArtista();
+		
+		System.out.println(f.buscarPosArtista("ART-1GM1"));
+	}
+
+}

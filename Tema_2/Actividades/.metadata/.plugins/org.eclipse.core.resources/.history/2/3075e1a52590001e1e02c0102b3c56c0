@@ -1,0 +1,176 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class Funciones {
+	static Scanner teclado = new Scanner(System.in);
+	
+	/**
+	 * Devuelve verdadero si el numero que se pasa como parametro
+	 * es primo y falso en caso contrario.
+	 * @param num: entero
+	 * @return boolean
+	 */
+	public static boolean esPrimo (int num) {
+		for (int div = 2; div < num; div++) {
+			if (num % div == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/**
+	 * Devuelve el menor primo que es mayor al numero que
+	 * se pasa como parametro
+	 * @param num: entero
+	 * @return entero
+	 */
+	public static int siguientePrimo (int num) {
+		num++;
+		while (esPrimo(num)==false) {
+			num++;
+		}
+		if (esPrimo(num)==true) {
+			return num;
+		}
+		return -1;
+	}
+	
+	/**
+	 * Cuenta el numero de digitos de un numero entero
+	 * @param num: entero
+	 * @return entero
+	 */
+	public static int digitos (int num) {
+		int contDigito = 0;
+		while (num > 0) {
+			num = num / 10;
+			contDigito++;
+		}
+		return contDigito; 
+	}
+	
+	/**
+	 * Le da la vuelta a un numero.
+	 * @param num: entero
+	 * @return entero
+	 */
+	public static int voltea (int num) {
+		int numVolt = 0;
+		while (num > 0) {
+			int cifra = num % 10;
+			numVolt = (numVolt * 10) + cifra;
+			num = num / 10;	
+		}
+		return numVolt;
+	}
+	
+	/**
+	 * Devuelve el digito que esta en la posicion n de un numero
+	 * entero. Se empieza contando por el 0 y de derecha a izquierda.
+	 * @param num: entero
+	 * @param pos: entero
+	 * @return entero
+	 */
+	public static int digitoN (int num, int pos) {
+		int contPos = 0;
+		int digito = 0;
+		boolean encontrePos = false;
+		while ((num > 0) && (encontrePos == false)) {
+			if (contPos == pos) {
+				digito = num % 10;
+				encontrePos = true;
+			}
+			else {
+				num = num / 10;
+				contPos++;
+			}
+		}
+		if (encontrePos == true) {
+			return digito;
+		}
+		return -1;
+	}
+	
+	//Matizar para que salga -1
+	public static int posicionDeDigito (int num, int digito) {
+		/*int contPosicion = 0;
+		 * 
+		 
+		boolean encontrado = false;
+		while (encontrado == false) {
+			int cifra = num % 10;
+			if (cifra == digito) {
+				encontrado = true;
+			}
+			else {
+				num = num / 10;
+				contPosicion++;
+			}
+		}
+		
+		return contPosicion;
+		*/
+		int contPos = 1;
+		boolean encontrePos = false;
+		
+		while ((num > 0) && (encontrePos == false)) {
+			if (contPos == digito) {
+				int cifra = num % 10;
+				encontrePos = true;
+			}
+			else {
+				num = num / 10;
+				contPos++;
+			}
+		}
+		if (encontrePos == true) {
+			return contPos;
+		}
+		return -1;
+	}
+	
+	/**
+	 * Le quita a un numero 1 digito por detras
+	 * por la derecha
+	 * @param num: entero
+	 * @return entero
+	 */
+	public static int quitaPorDetras (int num) {
+		num = num/10;
+		return num;
+	}
+	
+	/**
+	 * Le quita a un numero 1 digito por delante
+	 * por la izquierda
+	 * @param num: entero
+	 * @return entero
+	 */
+	public static int quitaPorDelante (int num) {
+		num = voltea(num);
+		num = num /10;
+		num = voltea(num);
+		return num;
+	}
+	
+	/**
+	 * Agrega un digito a un numero por detras.
+	 * @param num: entero
+	 * @param digito: entero
+	 * @return entero
+	 */
+	public static int pegaPorDetras (int num, int digito) {
+		num = (num * 10)+digito;
+		return num;
+	}
+	
+	public static int pegaPorDelante (int num, int digito) {
+		num = voltea(num);
+		num = pegaPorDetras(num, digito);
+		num = voltea(num);
+		return num;
+	}
+
+}

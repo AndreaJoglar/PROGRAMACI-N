@@ -1,0 +1,23 @@
+package Ficheros2_1;
+
+public class ejercicio07 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* escribir todas las permutaciones entre 1, 2, 3 y 4
+		 * mostrar número total de permutaciones
+		 */
+		
+		int a = 1;
+		int b = 1;
+		int c = 1;
+		int d = 1;
+		
+		while (d <= 4) {
+			System.out.print(a+", "+b+", "+c+", "+d+"\t ");
+			d++;
+		}
+
+	}
+
+}

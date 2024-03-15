@@ -1,0 +1,12 @@
+leer num
+posición = 0
+valorAcumulado = 0
+
+mientras (num >= 2)
+	resto = num % 2;
+	valorAcumulado = (resto * 10(elevPosicion) + valorActual
+	//avance
+	num = num/2;
+	posicion++;
+
+valorAcumulado = (num

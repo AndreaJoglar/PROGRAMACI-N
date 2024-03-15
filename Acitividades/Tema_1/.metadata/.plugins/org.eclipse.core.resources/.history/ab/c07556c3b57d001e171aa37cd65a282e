@@ -1,0 +1,58 @@
+package EjemplosClase;
+
+import java.util.Scanner;
+
+public class Entrega {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* pedir limite inferior
+		 * pedir limite superior
+		 * si inferior > superior, pedimos otra vez.
+		 * pedimos números != 0
+		 * al final mostrar
+		 * suma de los números dentro del intervalo (abierto),
+		 * cuántos números están fuera
+		 * si hemos introducido números iguales que los límites.
+		 */
+		
+		System.out.println("Introduce el límite inferior: ");
+		int inferior = teclado.nextInt();
+		System.out.println("Introduce el límite superior: ");
+		int superior = teclado.nextInt();
+		
+		while (inferior >= superior) {
+			System.out.println("El límite superior no es mayor que el inferior. Vuelve a intentarlo: ");
+			superior = teclado.nextInt();
+		}
+		int num = 1;
+		int suma = 0;
+		int contFuera = 0;
+		int contIgual = 0;
+		
+		while (num != 0) {
+			System.out.println("Introduce un número: ");
+			num = teclado.nextInt();
+			if ((num > inferior) && (num < superior)) {
+				suma = suma + num;
+			}
+			else {
+				if (((num < inferior) || (num > superior)) && (num != 0)) {
+					contFuera++;
+				}
+				else {
+					if ((num == inferior) || (num == superior)) {
+						contIgual++;
+					}
+				}
+			}
+			
+		}
+		System.out.println("La suma de los números dentro del intervalo = "+suma);
+		System.out.println("Números escritos fuera del intervalo = "+contFuera);
+		System.out.println("Número iguales que los límites = "+contIgual);
+
+	}
+
+}

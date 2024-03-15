@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="Ficheros.Libreria02"/>
+    <fullyQualifiedTypeName name="Ficheros.Libreria01"/>
+    <fullyQualifiedTypeName name="Ficheros.Libreria03"/>
+    <fullyQualifiedTypeName name="java.lang.VerifyError"/>
+    <fullyQualifiedTypeName name="Ficheros_Matrices.Libreria2"/>
+    <fullyQualifiedTypeName name="Ficheros_Vectores.Libreria"/>
+    <fullyQualifiedTypeName name="Ejercicio1.Libreria1"/>
+    <fullyQualifiedTypeName name="Ficheros_Matrices.Libreria_Matriz"/>
+    <fullyQualifiedTypeName name="Ficheros_Vectores.LibreriaApoyo"/>
+    <fullyQualifiedTypeName name="Ficheros_Vectores.LibreriaRepaso"/>
+    <fullyQualifiedTypeName name="java.lang.ArrayStoreException"/>
+    <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="Ficheros.Libreria"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+</qualifiedTypeNameHistroy>

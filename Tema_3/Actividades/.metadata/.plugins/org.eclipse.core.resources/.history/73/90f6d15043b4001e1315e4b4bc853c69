@@ -1,0 +1,12 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class Libreria {
+	static Scanner teclado = new Scanner(System.in);
+	
+	public static void notaMasAlta (int notas [][]) {
+		
+	}
+
+}

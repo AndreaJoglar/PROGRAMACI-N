@@ -1,0 +1,164 @@
+package ejercicio;
+
+public class Tienda {
+
+	private Producto [] producto;
+	private Venta [] venta;
+	
+	/**
+	 * @param producto
+	 * @param venta
+	 */
+	public Tienda() {
+		this.producto = null;
+		this.venta = null;
+	}
+	
+	/**
+	 * Permite agregar un producto a la tienda
+	 * @param p Producto
+	 */
+	public void insertarProducto(Producto p) {
+		if (producto == null) {
+			producto = new Producto [1];
+			producto[0] = p;
+		}
+		else {
+			if (buscarProducto(p.getIdProducto()) != null) {
+				System.out.println("No se puede insertar producto");
+			}
+			else {
+				int nuevoTamanio = producto.length + 1;
+				
+				Producto [] nuevoProducto = new Producto [nuevoTamanio];
+				
+				for (int i = 0; i < producto.length; i++) {
+					nuevoProducto[i] = producto[i];
+				}
+				int pos = nuevoTamanio - 1;
+				nuevoProducto[pos] = p;
+				producto = nuevoProducto;
+			}
+			
+		}
+	}
+	
+	/**
+	 * Busca la posicion en la que se encuentra un producto en la tienda
+	 * @param id String
+	 * @return entero
+	 */
+	public int buscarPosicionProducto(String id) {
+		int pos = - 1;
+		for (int i = 0; i < producto.length; i++) {
+			if (producto[i].getIdProducto().compareTo(id) == 0) {
+				pos = i;
+			}
+		}
+		return pos;
+	}
+	
+	/**
+	 * Busca un producto dentro de la tienda
+	 * @param id String
+	 * @return Producto
+	 */
+	public Producto buscarProducto(String id) {
+		int pos = buscarPosicionProducto(id);
+		Producto p = null;
+		
+		if (pos != -1) {
+			p = producto[pos];
+		}
+		return p;
+	}
+	
+	/**
+	 * Lista los productos de la tienda
+	 * @return String
+	 */
+	public String listarProductosTienda() {
+		String texto = "";
+		for (int i = 0; i < producto.length; i++) {
+			texto += producto[i].toString() + "\n";
+		}
+		return texto;
+	}
+	
+	public void insertarVenta(Venta v) {
+		if (venta == null) {
+			venta = new Venta [1];
+			venta[0] = v;
+		}
+		else {
+			if (buscarVenta(v.getIdVenta()) != null) {
+				System.out.println("No se puede insertar la venta");
+			}
+			else {
+				int nuevoTamanio = venta.length + 1;
+				
+				Venta [] nuevoVenta = new Venta [nuevoTamanio];
+				
+				for (int i = 0; i < venta.length; i++) {
+					nuevoVenta[i] = venta[i];
+				}
+				int pos = nuevoTamanio - 1;
+				nuevoVenta[pos] = v;
+				venta = nuevoVenta;
+			}
+			
+		}
+	}
+	
+	/**
+	 * Busca una venta en la tienda a partir de su idVenta
+	 * @param idVenta entero
+	 * @return entero
+	 */
+	public int buscarPosicionVenta (int idVenta) {
+		int pos = -1;
+		
+		for (int i = 0; i < venta.length; i++) {
+			if (venta[i].getIdVenta() == idVenta) {
+				pos = i;
+			}
+		}
+		return pos;
+	}
+	
+	/**
+	 * Busca una venta a partir de su id
+	 * @param idVenta entero
+	 * @return Venta
+	 */
+	public Venta buscarVenta (int idVenta) {
+		int pos = buscarPosicionVenta(idVenta);
+		Venta v = null;
+		
+		if (pos != -1) {
+			v = venta[pos];
+		}
+		else {
+			System.out.println("Venta no encontrada en registro.");
+		}
+		return v;
+	}
+	
+	public void devolverProducto(Producto p) {
+		int pos = buscarPosicionProducto(p.getIdProducto());
+		
+		if (pos != -1) {
+			int nuevoTamanio = producto.length - 1;
+			Producto [] nuevoProducto = new Producto  [nuevoTamanio];
+			
+			for (int i = 0; i < pos; i++) {
+				nuevoProducto[i] = producto[i];
+			}
+			for (int i = pos + 1; i < producto.length; i++) {
+				nuevoProducto[i-1] = producto[i];
+			}
+		}
+	}
+	
+	
+}

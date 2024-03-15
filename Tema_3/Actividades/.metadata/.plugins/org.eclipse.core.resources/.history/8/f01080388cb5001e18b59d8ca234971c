@@ -1,0 +1,16 @@
+package Ficheros;
+
+public class ejercicio07 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int [][]m= {{1,1,1},{1,1,1},{1,1,1}};
+		
+		System.out.println("Suma de la fila: "+Libreria.sumaFila(m, 0));
+		System.out.println("Suma de la columna: "+Libreria.sumaColumna(m, 0));
+		System.out.println("Suma de la diagonal principal: "+Libreria.sumaDiagonalPrincipal(m));
+		System.out.println("Suma de la diagonal secundaria: "Libreria.sumaDiagonalSecundaria(m));
+	}
+
+}

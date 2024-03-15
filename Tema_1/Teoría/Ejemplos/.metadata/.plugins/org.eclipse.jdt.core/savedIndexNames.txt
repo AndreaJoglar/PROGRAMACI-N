@@ -1,0 +1,7 @@
+INDEX VERSION 1.134+C:\Users\andre\OneDrive\Escritorio\DAM FP\PROGRAMACIÓN\Tema_1\Teoría\Ejemplos\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+2334282574.index
+2488753536.index
+1937121101.index
+1642687062.index
+2398879911.index

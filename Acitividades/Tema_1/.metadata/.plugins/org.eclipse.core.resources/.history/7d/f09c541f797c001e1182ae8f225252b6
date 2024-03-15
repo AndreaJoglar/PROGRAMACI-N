@@ -1,0 +1,24 @@
+package ficheros2_1_3;
+
+import java.util.Scanner;
+
+public class ejercicio04Clase {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* Adivinar número entre 1 y 20
+		 * número se definió como una constante
+		 * pedir números al usuario
+		 * el programa indica si el número es mayor o menor que la constante
+		 * mostrar cantidad de intentos necesarios para acertar
+		 * si cantidad intentos < 5 mostrar enhorabuena
+		 * si cantidad <=10 y >= 5: no está mal
+		 * si cantidad > 10 debe practicar más
+		 */
+		
+		
+
+	}
+
+}

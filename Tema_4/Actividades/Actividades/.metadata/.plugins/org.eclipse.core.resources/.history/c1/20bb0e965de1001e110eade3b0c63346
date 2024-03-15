@@ -1,0 +1,27 @@
+package ejercicio1;
+
+public class Factura {
+
+	private static int CONTADOR_FACTURAS = 0;
+	
+	private int numeroFactura;
+	private Cliente c;
+	private DetalleFactura [] detalles;
+	private int contDetalles;
+	
+	public Factura() {
+		this.CONTADOR_FACTURAS++;
+		this.numeroFactura = CONTADOR_FACTURAS;
+		this.c = asignarCliente(c);
+		this.detalles = new DetalleFactura [10];
+		this.contDetalles = 0;
+	}
+
+	private Cliente asignarCliente(Cliente c) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
+}

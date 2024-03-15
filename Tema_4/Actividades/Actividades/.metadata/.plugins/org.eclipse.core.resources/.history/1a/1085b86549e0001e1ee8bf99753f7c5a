@@ -1,0 +1,31 @@
+package ejercicio1;
+
+public class Prueba {
+
+	public static void main(String[] args) {
+		
+		Tienda tienda = new Tienda();
+		cargarProductos(tienda);
+
+	}
+
+	private static void cargarProductos(Tienda tienda) {
+		
+		Producto p1 = new Producto("Ref1", "nombre1", 100);
+		tienda.insertarProducto(p1);
+		
+		Producto p2 = new Producto("Ref2", "nombre2", 110);
+		tienda.insertarProducto(p2);
+		
+		ProductoGrande p3 = new ProductoGrande("ref3", "prod3", 120, 20);
+		tienda.insertarProducto(p3);
+		
+		ProductoGrande p4 = new ProductoGrande("ref4", "prod4", 130, 10);
+		tienda.insertarProducto(p3);
+		
+		ProductoGrande p5 = new ProductoGrande("ref4", "prod5", 140, 20);
+		tienda.insertarProducto(p3);
+		
+	}
+
+}

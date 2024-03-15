@@ -1,0 +1,10 @@
+package ejercicio;
+
+public class Venta {
+
+	private static int CONT_VENTAS;
+	
+	private int idVentas;
+	private String nombreVendedor;
+	private DetalleVenta [] detalle;
+}

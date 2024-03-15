@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Tarea_Entrega_T3&apos; to &apos;Tarea_Entrega_Vectores&apos;" description="Rename resource &apos;Tarea_Entrega_T3&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/Tarea_Entrega_T3" name="Tarea_Entrega_Vectores" stamp="1702367059209" updateReferences="true"/>
+</session>

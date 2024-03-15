@@ -1,0 +1,30 @@
+package ejercicio;
+
+import ejercicio1.Producto;
+
+public class Tienda {
+
+	private Producto [] productos;
+	private Venta [] ventas;
+	private int contProductos;
+	private int contVentas;
+	
+	public Tienda() {
+		this.productos = new Producto [10];
+		this.contProductos = 0;
+		this.ventas = new Venta[10];
+		this.contVentas = 0;
+	}
+	
+	public void añadirProducto (Producto p) { //agregación
+		if (contProductos < productos.length) {
+			productos[contProductos] = p;
+			contProductos++;
+		}
+		else {
+			System.out.println("Error. No hay sitio.");
+		}
+	}
+	
+	
+}

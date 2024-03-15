@@ -1,0 +1,34 @@
+package ejercicio;
+
+import ejercicio1.DetalleFactura;
+
+public class Venta {
+
+	private static int CONT_VENTAS = 0;
+	
+	private int idVentas;
+	private String nombreVendedor;
+	private DetalleVenta [] detalle;
+	
+	/**
+	 * @param idVentas
+	 * @param nombreVendedor
+	 * @param detalle
+	 */
+	public Venta(int idVentas, String nombreVendedor, DetalleVenta[] detalle) {
+		CONT_VENTAS++;
+		this.idVentas = CONT_VENTAS;
+		this.nombreVendedor = nombreVendedor;
+		this.detalle = detalle;
+	}
+	
+	public void añadirDetalle (Producto p, int cantidad) {
+		DetalleVenta detalle = new DetalleVenta (p, cantidad);
+		if (contDetalles < detalles.length) {
+			detalles[contDetalles] = detalle;
+			contDetalles++;
+		}
+	}
+	
+	
+}

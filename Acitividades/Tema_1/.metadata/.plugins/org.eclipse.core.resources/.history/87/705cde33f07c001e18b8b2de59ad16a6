@@ -1,0 +1,32 @@
+package ficheros2_1_4;
+
+import java.util.Scanner;
+
+public class ejercicio06 {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* PIN_SECRETO
+		 * tenemos 3 intentos
+		 * si eso correcto, mostrar "Login correcto"
+		 * sino, "Llamando a la policía
+		 */
+		
+		
+		for (int cont = 1; cont >= 3; cont++) {
+			System.out.println("Intento ("+cont+"). Introduce el número PIN: ");
+			int pin = teclado.nextInt();
+			if (pin == PIN_SECRETO) {
+				System.out.println("Login correcto");
+				cont = 3;
+			}
+			else {
+				cont++;
+			}
+		}
+		
+
+	}
+
+}

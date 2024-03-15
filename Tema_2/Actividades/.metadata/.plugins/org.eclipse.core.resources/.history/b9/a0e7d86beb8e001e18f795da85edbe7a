@@ -1,0 +1,23 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class contarCifras {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Número: ");
+		int num = teclado.nextInt();
+		
+		int cifras = Libreria.contarCifra(num);
+		System.out.println("Número de cifras = "+cifras);
+		
+		
+		int numero = 11829;
+		int posicion = Libreria.posicionNum(11829);
+		
+
+	}
+
+}

@@ -1,0 +1,23 @@
+/**
+ * Interface Agrupacion. Contiene dos metodos que aplican las clases que heredan
+ */
+package ejercicio;
+/**
+ * @author Andrea Fernandez Joglar
+ * @version 1.2
+ */
+public interface I_Agrupacion {
+
+	/**
+	 * Metodo de la interfaz Agrupacion que permite elegir el tipo de disciplina
+	 * al que pertenece cada Artista
+	 */
+	public void mostrarDisciplina();
+	
+	/**
+	 * Metodo de la interfaz Agrupacion que permite asignar un identificador a las clases 
+	 * que heredan de ella
+	 * @return String
+	 */
+	public String asignarIdentificador();
+}

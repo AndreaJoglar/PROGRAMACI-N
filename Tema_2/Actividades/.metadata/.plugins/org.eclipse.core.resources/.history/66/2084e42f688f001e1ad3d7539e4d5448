@@ -1,0 +1,12 @@
+package Ficheros;
+
+public class DevolverCifraPosicion {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.println(Libreria.PosicionDada(4235, 4));
+
+	}
+
+}

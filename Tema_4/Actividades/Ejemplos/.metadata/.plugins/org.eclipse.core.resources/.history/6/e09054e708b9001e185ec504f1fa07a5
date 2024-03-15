@@ -1,0 +1,10 @@
+package ejemplos_01;
+
+public class pruebaAlumno {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

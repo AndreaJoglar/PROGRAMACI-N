@@ -1,0 +1,275 @@
+/**
+ * Clase principal en la que se prueba la correccion del proyecto. Incluye un menu que muestra las
+ * distintas opciones y su correcta gestion. Asimismo, se establece un metodo cargarDatos para
+ * introducir algunos artistas de manera directa en el festival.
+ */
+package ejercicio;
+
+import java.util.Scanner;
+
+/**
+ * @author Andrea Fernandez Joglar
+ * @version 1.2
+ */
+public class menuFestival {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Festival festival = new Festival();
+		
+		cargarDatos(festival);
+	
+		
+		int opcion = menu();
+		
+		while (opcion != 0) {
+			switch (opcion) {
+			case 1: {
+				insertarGrupoMusical(festival);
+				break;
+			}
+			case 2: {
+				insertarGrupoDanza(festival);
+				break;
+			}
+			case 3: {
+				festival.listarFestival();
+				break;
+			}
+			
+			case 4: {
+				System.out.println("Indica el ID del artista que quieras buscar: ");
+				String id = teclado.next();
+				Artista a = festival.buscarArtista(id);
+				if (a == null) {
+					System.out.println("Artista no encontrado.");
+				}
+				else {
+					System.out.println("Artista encontrado: \n\t" + a.toString());
+				}
+				break;
+			}
+			case 5: {
+				System.out.println("Indica el ID del artista que quieras eliminar: ");
+				String id = teclado.next();
+				if(!festival.borrarArtista(id)) {
+					System.out.println("ERROR. Artista no encontrado");
+				}
+				else {
+					festival.borrarArtista(id);
+				}
+				break;
+			}
+			default:
+				System.out.println("La opción '" + opcion + "' no es válida");
+			}
+			opcion = menu();
+		}
+	}
+
+	/**
+	 * Permite ingresar un grupo musical en el festival
+	 * @param festival Festival
+	 */
+	private static void insertarGrupoMusical(Festival festival) {
+		System.out.println("Nombre del grupo musical: ");
+		String nombre = teclado.next();
+		System.out.println("Indica el caché del grupo");
+		double cache = teclado.nextDouble();
+		Manager manager = crearManager();
+		EstiloMusical estilo = asignarEstiloMusical();
+		boolean tieneTecnico = disponeDeTecnico();
+		
+		GrupoMusical gm = new GrupoMusical(nombre, manager, cache, estilo, tieneTecnico);
+		festival.inscribirArtista(gm);
+	}
+
+	/**
+	 * Permite rellenar los datos del manager de un grupo musical
+	 * @return Manager
+	 */
+	private static Manager crearManager() {
+		System.out.println("Indica el nombre del manager: ");
+		String nombre = teclado.next();
+		System.out.println("Indica los apellidos del manager: ");
+		String apellidos = teclado.next();
+		System.out.println("Indica el teléfono del manager: ");
+		String telefono = teclado.next();
+		System.out.println("Indica el email del manager: ");
+		String email = teclado.next();
+		System.out.println("Indica la empresa de management: ");
+		String empresa = teclado.next();
+		
+		Manager m = new Manager(nombre, apellidos, telefono, email, empresa);
+		return m;
+	}
+	
+	/**
+	 * Permite asignar un estilo musical al grupo a eleccion del usuario
+	 * @return EstiloMusical
+	 */
+	private static EstiloMusical asignarEstiloMusical() {
+		System.out.println("Selecciona el número que corresponda con el estilo del grupo: " 
+							+ "\n\t1 = POP" + "\n\t2 = ROCK" + "\n\t3 = PUNK" + "\n\t4 = METAL");
+		int opcion = teclado.nextInt();
+		
+		EstiloMusical e = null;
+		switch (opcion) {
+		case 1: {
+			e = EstiloMusical.POP;
+			break;
+		}
+		case 2: {
+			e = EstiloMusical.ROCK;
+			break;
+		}
+		case 3: {
+			e = EstiloMusical.PUNK;
+			break;
+		}
+		case 4: {
+			e = EstiloMusical.METAL;
+			break;
+		}
+		default:
+			System.out.println("El estilo musical no es válido.");;
+		}
+		return e;
+	}
+	
+	/**
+	 * Permite indicar si el grupo dispone de tecnico o no
+	 * @return boolean
+	 */
+	private static boolean disponeDeTecnico() {
+		boolean tieneTecnico = false;
+		System.out.println("El grupo necesita la contratación de técnico de sonido: SÍ / NO");
+		String respuesta = teclado.next();
+		
+		while (respuesta.charAt(0) != 'S' && respuesta.charAt(0) != 's'
+				&& respuesta.charAt(0) != 'N' && respuesta.charAt(0) != 'n') {
+			System.out.println("ERROR. Por favor, responda SÍ o NO:");
+			respuesta = teclado.next();
+		}
+		if (respuesta.charAt(0) == 'S' || respuesta.charAt(0) == 's') {
+			tieneTecnico = false;
+		}
+		else {
+			if (respuesta.charAt(0) == 'N' || respuesta.charAt(0) == 'n') {
+				tieneTecnico = true;
+			}
+		}
+		
+		return tieneTecnico;
+	}
+
+	/**
+	 * Permite insertra un grupo de danza en el festival
+	 * @param festival Festival
+	 */
+	private static void insertarGrupoDanza(Festival festival) {
+		System.out.println("Nombre del grupo de danza: ");
+		String nombre = teclado.next();
+		System.out.println("Indica el caché del grupo: ");
+		double cache = teclado.nextDouble();
+		Manager manager = crearManager();
+		TipoDanza tipo = asignarTipoDanza();
+		System.out.println("Indicar país del grupo de danza: ");
+		String pais = teclado.next();
+		
+		GrupoDanza gd = new GrupoDanza(nombre, manager, cache, tipo, pais);
+		festival.inscribirArtista(gd);
+	}
+
+	/**
+	 * Permite asignar un tipo de estilo de danza a la eleccion del usuario
+	 * @return TipoDanza
+	 */
+	private static TipoDanza asignarTipoDanza() {
+		System.out.println("Indica el número del tipo de danza que realizan los grupos: "
+							+ "\n\t1 = Clasica" + "\n\t2 = Tradicional" 
+							+ "\n\t3 = Contemporánea" + "\n\t4 = Urbana");
+		int opcion = teclado.nextInt();
+		
+		TipoDanza d = null;
+		switch (opcion) {
+		case 1: {
+			d = TipoDanza.CLASICA;
+			break;
+		}
+		case 2: {
+			d = TipoDanza.TRADICIONAL;
+			break;
+		}
+		case 3: {
+			d = TipoDanza.CONTEMPORANEA;
+			break;
+		}
+		case 4: {
+			d = TipoDanza.URBANA;
+			break;
+		}
+		default:
+			System.out.println("El tipo de danza no es válido.");;
+		}
+		return d;
+		
+		
+	}
+
+	/**
+	 * Muestra el menu de operaciones que podemos realizar sobre el Festival
+	 * @return entero
+	 */
+	private static int menu() {
+		System.out.println("********************");
+		System.out.println("Elige una opción: ");
+		System.out.println("\t1- Insertar grupo musical: ");
+		System.out.println("\t2- Insertar grupo de danza: ");
+		System.out.println("\t3- Mostrar cartel del festival: ");
+		System.out.println("\t4- Buscar artista: ");
+		System.out.println("\t5- Eliminar artista: ");
+		System.out.println("\t0- Salir ");
+		System.out.println("Opción elegida: ");
+		int opcion = teclado.nextInt();
+		return opcion;
+	}
+
+
+	/**
+	 * Permite cargar datos al Festival
+	 * @param festival Festival
+	 */
+	public static void cargarDatos (Festival festival) {
+		Manager manager1 = new Manager("Carlos", "Bardial", "666111222", 
+										"funkto@gmail.com", "FunkTown Producciones");
+		Manager manager2 = new Manager("Francesca", "Lombardi", "756221332",
+										"latorre@gmail.com", "La Torre Productions");
+		Manager manager3 = new Manager("Augusta", "Alhegro", "032111222",
+				"alegria@gmail.com", "Prod Alegria");
+		Manager manager4 = new Manager("Maurice", "Trouffeau", "142333111",
+				"trionph@gmail.com", "Vic PD");
+		Manager manager5 = new Manager("Hermann", "Kahlo", "345666777",
+				"hermann@gmail.com", "HeSse Jet");
+		
+		
+		GrupoMusical gMusica1 = new GrupoMusical("Amaral", manager1, 22500, EstiloMusical.POP, true);
+		GrupoMusical gMusica2 = new GrupoMusical("Dover", manager1, 10000, EstiloMusical.ROCK, false);
+		GrupoMusical gMusica3 = new GrupoMusical("Talco", manager2, 20800, EstiloMusical.PUNK, true);
+		
+		GrupoDanza gDanza1 = new GrupoDanza("Sambame", manager3, 15000, TipoDanza.CONTEMPORANEA, "Francia");
+		GrupoDanza gDanza2 = new GrupoDanza("DubHop", manager4, 3000, TipoDanza.URBANA, "Francia");
+		GrupoDanza gDanza3 = new GrupoDanza("Black Swan", manager5, 
+											26000, TipoDanza.CLASICA, "E.E.U.U.");
+		
+		festival.inscribirArtista(gMusica1);
+		festival.inscribirArtista(gMusica2);
+		festival.inscribirArtista(gMusica3);
+		festival.inscribirArtista(gDanza1);
+		festival.inscribirArtista(gDanza2);
+		festival.inscribirArtista(gDanza3);
+	}
+
+}

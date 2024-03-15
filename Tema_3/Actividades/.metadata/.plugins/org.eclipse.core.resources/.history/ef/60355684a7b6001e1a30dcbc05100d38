@@ -1,0 +1,78 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class Libreria {
+	static Scanner teclado = new Scanner(System.in);
+	
+	/**
+	 * Funcion que determina puntos de luz en un vector
+	 * @param v vector de enteros
+	 */
+	public static void mostrarPuntosLuz (int v[]) {	
+		for (int i = 0; i < v.length; i++) {
+			if (i%2==0 && v[i]%2!=0 && v[i]%3==0) {
+				System.out.println(v[i]+" en la posición "+i+" es un punto de luz.");
+			}
+		}
+	}
+	//hacer
+	public static void mostrarAviso (int [][]vuelos) {
+		int warning =1;
+		
+		for (int i = 0; i < vuelos.length; i++) {
+			
+		}
+	}
+	
+	/*Actividad 3
+	public static int []calcularPrimeraDerivada{
+		
+	}
+	*/
+	
+	/**
+	 * Funcion que genera un tablero y lo rellena con ceros
+	 * @return matriz de enteros
+	 */
+	public static int [][]generarTablero(){
+		System.out.println("Indica dimensión: ");
+		int dim = teclado.nextInt();
+		int m[][]=new int [dim][dim];
+		
+		for (int i = 0; i < m.length; i++) {
+			for (int j = 0; j < m[0].length; j++) {
+				m[i][j]=0;
+			}
+		}
+		return m;
+	}
+	
+	public static void mostrarMatriz (int m [][]) {
+		for (int i=0;i<m.length;i++) {
+			for (int j=0;j<m[0].length;j++) {
+				System.out.print(m[i][j]+" ");
+			}
+			System.out.println();
+		}
+	}
+	
+	public static void colocarBarcoFila(int[][] m, int filaInicio, int columnaInicio, int tam) {
+		//se desborda por las "columnas"
+		boolean barco=true;
+		if (columnaInicio+tam-1>=m[0].length) {//fuera de rango se desborda de longitud
+			barco = false;
+		}
+		//posicion ocupada por barco
+		for (int j=columnaInicio;j<columnaInicio+tam;j++) {
+			if (m[filaInicio][j]!=0) {
+				barco = false; 
+			}
+		}
+		//marcar las posiciones
+		for (int j=columnaInicio;j<columnaInicio+tam;j++) {
+			m[filaInicio][j]=tam; 	
+		}
+	}
+	
+}

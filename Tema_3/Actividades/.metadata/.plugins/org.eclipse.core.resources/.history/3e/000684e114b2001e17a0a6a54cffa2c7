@@ -1,0 +1,11 @@
+package Ficheros;
+
+public class ejercicio04 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int v[]= {2,4,3,6,5,7,9,3,4,2,5,6,8,1,1,4};
+	}
+
+}

@@ -1,0 +1,25 @@
+package Ficheros;
+
+public class ejercicio16b {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	public static void incrementaHora (int hora, int min, int seg) {
+		seg++;
+		if (seg == 60) {
+			seg = 0;
+			min++;
+			if (min == 60) {
+				min = 0;
+				hora++;
+				if (hora == 24) {
+					hora = 0;
+				}
+			}
+		}
+		System.out.println("Hora incrementada: "+hora+":"+min+":"+seg);
+	}
+
+}

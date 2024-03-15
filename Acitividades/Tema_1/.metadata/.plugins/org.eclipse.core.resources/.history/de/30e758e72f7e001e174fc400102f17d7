@@ -1,0 +1,12 @@
+package Ficheros;
+
+public class Ejercicio3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* Calcular la raíz cuadrada de un número entero
+		 */
+
+	}
+
+}

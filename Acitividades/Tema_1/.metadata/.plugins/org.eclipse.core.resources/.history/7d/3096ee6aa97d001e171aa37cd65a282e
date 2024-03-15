@@ -1,0 +1,33 @@
+package ficheros2_1_4;
+
+import java.util.Scanner;
+
+public class ejercicio07b {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* Calculadora. Mientras no pulsemos -1, funciona
+		 * pedir datos a y b
+		 * operacion 1, 2 o 3: 1) Math.sqrt+b); 2) a/b. Si b = 0, no se puede; 3) (a * b)/2.5
+		 */
+		System.out.println("Introduce el valor de A: ");
+		double a = teclado.nextDouble();
+		System.out.println("Introduce el valor de B: ");
+		double b = teclado.nextDouble();
+		
+		int operacion = 0;
+		
+		while ((a != -1) && (b != -1) && (operacion != -1)) {
+			System.out.println("Elige la operación que quieres realizar (1, 2 o 3): ");
+			operacion = teclado.nextInt();
+			while ((operacion != 1) || (operacion != 2) && (operacion != 3)) {
+				System.out.println("Valor incorrecto. Por favor elija entre 1, 2 o 3:");
+				operacion = teclado.nextInt();
+			}
+			
+		}
+
+	}
+
+}

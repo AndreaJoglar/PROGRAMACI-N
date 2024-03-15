@@ -1,0 +1,20 @@
+package Ficheros;
+
+public class ejercicio_03 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int m[][]= {{5,7,5,4,2},
+					{5,3,9,6,5},
+					{1,4,7,7,6},
+					{8,6,2,9,4}};
+				
+		int v[]= {6,2,6,2};
+		
+		int primeraDerivada []= Libreria.calcularPrimeraDerivada(m, v);
+		Libreria.mostrarVector(primeraDerivada);
+		
+	}
+
+}

@@ -1,0 +1,80 @@
+package ejercicio;
+
+public class Tienda {
+
+	private Producto [] producto;
+	private Venta [] venta;
+	
+	/**
+	 * @param producto
+	 * @param venta
+	 */
+	public Tienda() {
+		this.producto = null;
+		this.venta = null;
+	}
+	
+	/**
+	 * Permite agregar un producto a la tienda
+	 * @param p Producto
+	 */
+	public void insertarProducto(Producto p) {
+		if (producto == null) {
+			producto = new Producto [1];
+			producto[0] = p;
+		}
+		else {
+			if (buscarProducto(p.getIdProducto()) != null) {
+				System.out.println("No se puede insertar producto");
+			}
+			int nuevoTamanio = producto.length + 1;
+			
+			Producto [] nuevoProducto = new Producto [nuevoTamanio];
+			
+			for (int i = 0; i < producto.length; i++) {
+				nuevoProducto[i] = producto[i];
+			}
+			int pos = nuevoTamanio - 1;
+			nuevoProducto[pos] = p;
+			producto = nuevoProducto;
+		}
+	}
+	
+	/**
+	 * Busca la posicion en la que se encuentra un producto en la tienda
+	 * @param id String
+	 * @return entero
+	 */
+	public int buscarPosicionProducto(String id) {
+		int pos = - 1;
+		for (int i = 0; i < producto.length; i++) {
+			if (producto[i].getIdProducto().compareTo(id) == 0) {
+				pos = i;
+			}
+		}
+		return pos;
+	}
+	
+	/**
+	 * Busca un producto dentro de la tienda
+	 * @param id String
+	 * @return Producto
+	 */
+	public Producto buscarProducto(String id) {
+		int pos = buscarPosicionProducto(id);
+		Producto p = null;
+		
+		if (pos != -1) {
+			p = producto[pos];
+		}
+		return p;
+	}
+	
+	public void listarProductosTienda() {
+		for (int i = 0; i < producto.length; i++) {
+			System.out.println(producto[i].toString());
+		}
+	}
+	
+	
+}

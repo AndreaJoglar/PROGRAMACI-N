@@ -1,0 +1,23 @@
+package ficheros2_1_4;
+
+import java.util.Scanner;
+
+public class ejercicio11 {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* pedir opcion 1 o 2:
+		 * 
+		 */
+		
+		System.out.println("Elija 1 o 2: ");
+		int opcion = teclado.nextInt();
+		while ((opcion != 1) && (opcion != 2)) {
+			System.out.println("Solo puedes pulsar 1 o 2. Vuelva a intentarlo: ");
+			opcion= teclado.nextInt();
+		}
+
+	}
+
+}

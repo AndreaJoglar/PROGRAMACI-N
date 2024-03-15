@@ -1,0 +1,32 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class actividad {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int m [][]= new int [6][6];
+		
+		//crear tablero con todo ceros
+		for (int i = 0; i < m.length; i++) {
+			for (int j = 0; j < m[0].length; j++) {
+				m[i][j]=0;
+			}
+		}
+		
+		colocarBarcoFila(m, 2, 2, 4);//correcto
+		colocarBarcoFila(m, 4, 4, 4);//incorrecto fuera de rango
+		colocarBarcoFila(m, 2, 3, 1);//ya hay barco
+	}
+
+	public static void colocarBarcoFila(int[][] m, int fila, int columna, int tam) {
+		
+		
+	}
+	
+	
+
+}

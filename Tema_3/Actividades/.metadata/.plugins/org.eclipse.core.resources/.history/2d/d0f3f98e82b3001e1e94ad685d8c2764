@@ -1,0 +1,12 @@
+package Ficheros;
+
+public class ejercicio03 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		char sec1[] = {'A','T','G','C','G','T','A','T'};
+		char sec2[] = {'A','T','A','T','G','C','G','T'};
+
+	}
+
+}

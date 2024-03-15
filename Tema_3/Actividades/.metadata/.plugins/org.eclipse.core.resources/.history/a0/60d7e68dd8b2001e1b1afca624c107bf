@@ -1,0 +1,18 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class ejercicio07 {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		float [] v = {1,2,3,4,5,6};
+		Libreria.mostrarVectorReal(v);
+		System.out.println("Vector ordenado: ");
+		Libreria.ordenarParesImpares(v);
+		
+	}
+
+}

@@ -1,0 +1,19 @@
+package ficheros2_1_4;
+
+import java.util.Scanner;
+
+public class ejercicio06Clase {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* teclear un pin secreto
+		 * ir leyendo dígitos y ver si coinciden
+		 */
+		
+		int pin_secreto = (int)(Math.random()*9999+0000);
+		System.out.println(pin_secreto);
+
+	}
+
+}

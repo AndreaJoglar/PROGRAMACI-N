@@ -1,0 +1,36 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class Ejercicio4 {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* número mágico de una persona
+		 * 
+		 */
+		System.out.println("Escribe un año: ");
+		int anio = teclado.nextInt();
+		System.out.println("Escribe mes:");
+		int mes = teclado.nextInt();
+		System.out.println("Escribe día: ");
+		int dia = teclado.nextInt();
+		
+		int suma = anio + mes + dia;
+		System.out.println(suma);
+		int numMagico = 0; 
+		
+		while (suma > 0) {
+			int cifra = suma % 10;
+			suma = suma / 10;
+			numMagico = numMagico + cifra;
+			while (numMagico > 9) {
+				cifra = numMagico % 10;
+				numMagico = numMagico / 10;
+				numMagico = numMagico + cifra;
+			}
+		}
+		System.out.println(numMagico);
+	}
+}

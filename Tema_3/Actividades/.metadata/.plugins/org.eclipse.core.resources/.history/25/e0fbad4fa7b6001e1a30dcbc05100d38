@@ -1,0 +1,17 @@
+package Ficheros;
+
+public class ejercicio_04 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int tablero [][]=Libreria.generarTablero();
+		Libreria.mostrarMatriz(tablero);
+		
+		
+		
+		Libreria.colocarBarcoFila(tablero, 2, 2, 4);
+		*/
+	}
+
+}

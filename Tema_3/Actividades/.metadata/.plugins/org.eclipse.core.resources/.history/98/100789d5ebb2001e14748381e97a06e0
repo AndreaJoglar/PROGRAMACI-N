@@ -1,0 +1,19 @@
+package Ficheros_Matrices;
+
+import java.util.Scanner;
+
+public class ejercicio01 {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.out.println("Introduce número de filas: ");
+		int filas=teclado.nextInt();
+		System.out.println("Introduce número de columnas: ");
+		int columnas=teclado.nextInt();
+		
+		int [][]m=new int [filas][columnas];
+	}
+
+}

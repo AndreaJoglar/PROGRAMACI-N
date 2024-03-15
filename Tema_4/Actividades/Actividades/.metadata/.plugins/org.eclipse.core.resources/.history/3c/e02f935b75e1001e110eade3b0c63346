@@ -1,0 +1,25 @@
+package ejercicio;
+
+public class Tienda {
+
+	private Producto [] producto;
+	private Venta [] venta;
+	
+	/**
+	 * @param producto
+	 * @param venta
+	 */
+	public Tienda() {
+		this.producto = null;
+		this.venta = null;
+	}
+	
+	public void insertarProducto(Producto p) {
+		if (producto == null) {
+			Producto [] nuevo = new Producto [1];
+			nuevo[0] = p;
+		}
+	}
+	
+	
+}

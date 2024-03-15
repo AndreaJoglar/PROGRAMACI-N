@@ -1,0 +1,27 @@
+package ficheros2_1_3;
+
+import java.util.Scanner;
+
+public class ejercicio03Clase {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* pedir números hasta que
+		 * 1) se haya introducido 10 números
+		 * 2) la suma de todos los números sea mayor de 100
+		 * mostrar qué condición se ha cumplido
+		 * si se introdujeron 10 números
+		 * o si se superó con la suma 100
+		 */
+		
+		int suma = 0;
+		int contNum = 0;
+		
+		while (contNum < 10 && suma < 100) {
+			System.out.println("Introduce un número: ");
+			int num = teclado.nextInt();
+		}
+
+	}
+}

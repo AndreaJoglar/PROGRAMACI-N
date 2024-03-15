@@ -1,0 +1,17 @@
+package Ficheros;
+
+public class ejercicio07 {
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int option = Libreria.menuFahrenheit();
+		if(option == 1) {
+			double fahrenheit = Libreria.conversorFahrenheit();
+			System.out.println("Temperatura en Fahrenheit = "+fahrenheit);
+		}
+
+	}
+
+}

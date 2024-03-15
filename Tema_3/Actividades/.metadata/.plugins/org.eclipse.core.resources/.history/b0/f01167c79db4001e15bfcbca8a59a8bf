@@ -1,0 +1,29 @@
+package Ficheros_Vectores;
+
+import java.util.Scanner;
+
+public class LibreriaApoyo {
+	static Scanner teclado = new Scanner(System.in);
+
+	/**
+	 * Funcion que lee los valores de un vector introducidos
+	 * por teclado
+	 * @param v vector de enteros
+	 */
+	public static void leerVector (int v []) {
+		for (int i = 0; i < v.length; i++) {
+			System.out.println("["+i+"]: ");
+			v[i]=teclado.nextInt();
+		}
+	}
+	
+	public static void mostrarVector (int v[]) {
+		System.out.print("[");
+		for (int i = 0; i < v.length; i++) {
+			System.out.print(v[i]+", ");
+			if (i==v.length-1) {
+				System.out.print(v[i]+"]");
+			}
+		}
+	}
+}

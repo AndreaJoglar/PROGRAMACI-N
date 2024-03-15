@@ -1,0 +1,52 @@
+package Ficheros;
+
+import java.util.Scanner;
+
+public class ejercicio04 {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int v[]=Libreria.generarBaraja();
+		Libreria.mostrarBaraja(v);
+		
+		System.out.println();
+		System.out.println("Baraja mezclada: ");
+		Libreria.mezclarBaraja(v);
+		System.out.println();
+		
+		
+		
+		
+		double suma=0;
+		while(suma<=7.5) {
+			double puntuacion;
+			System.out.println("Escoge carta: ");
+			int pos=teclado.nextInt();
+			Libreria.elegirCarta(v, pos);
+			if(Libreria.elegirCarta(v, pos)=='x') {
+				System.out.println("Tu carta: "+v[pos]);
+				puntuacion=v[pos];
+				System.out.println("Puntuación = "+puntuacion);
+			}
+			else {
+				System.out.println("Tu carta: "+Libreria.elegirCarta(v, pos));
+				puntuacion=Libreria.calcularPuntuacion(v);
+				System.out.println(puntuacion);
+				System.out.println("Puntuación: "+puntuacion);
+			}
+			suma+=puntuacion;
+		}
+	
+		if(suma>7.5)
+		System.out.println("Has perdido. Puntuación final: "+suma);
+		else System.out.println("Enhorabuena");
+		
+		
+		
+		
+	
+	}
+
+}

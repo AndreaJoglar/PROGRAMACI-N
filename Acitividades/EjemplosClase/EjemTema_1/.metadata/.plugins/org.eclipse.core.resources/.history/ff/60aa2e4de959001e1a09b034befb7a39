@@ -1,0 +1,19 @@
+package EjemplosClase;
+
+public class EjemploNumeros {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int a = 7;
+		int b = 3;
+		
+		int r1 = a/b;
+		float r2 = a/b;
+		
+		System.out.println("r1 int: "+r1);
+		System.out.println("r2 float: "+r2);
+
+	}
+
+}

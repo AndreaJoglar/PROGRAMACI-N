@@ -1,0 +1,40 @@
+package ficheros2_1_4;
+
+import java.util.Scanner;
+
+public class ejercicio03 {
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* imprimir forma diamante con asteriscos
+		 */
+		System.out.println("Introduce un número: ");
+		int tope = teclado.nextInt();
+		
+		for (int filas = 1; filas <= tope; filas++) {
+			System.out.println();
+			//espacios
+			for (int espacio = 1; espacio <= tope - filas; espacio++) {
+				System.out.print("  ");
+			}
+			//asteriscos
+			for (int columna = 1; columna <= filas * 2; columna++) {
+				System.out.print("* ");		
+			}
+		
+		}
+		for (int filas = 1; filas <= tope; filas++) {
+			System.out.println();
+			for (int espacio = 1; espacio <= tope - filas; espacio++) {
+				System.out.print("  ");
+			}
+			for (int columna = 1; columna <= (filas * 2); columna++) {
+				System.out.print("* ");		
+			}
+		
+		}
+
+	}
+
+}
